@@ -33,6 +33,7 @@
     font-family: 'Inter';
     font-style: normal;
 }
+
 .section {
     max-width: 1140px;
 }
@@ -275,10 +276,14 @@
 }
 
 .student {
-    position: relative;
     margin: 0 auto 125px;
     max-width: 1140px;
 
+}
+
+.student-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
 .student__title {
@@ -295,10 +300,8 @@
 }
 
 .student__photo {
-    position: absolute;
-    top: 117px;
-    right: 0;
     max-width: 400px;
+    border-radius: 10px;
 }
 
 .student__education {
@@ -402,4 +405,3 @@
 .footer-info__links:last-child {
     margin: 0;
 }
-
