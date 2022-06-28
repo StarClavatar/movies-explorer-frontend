@@ -21,7 +21,7 @@
     </header>
 
     <main class="page">
-        <section class="preview">
+        <section class="preview section">
             <div class="banner">
                 <h1 class="banner__heading">Учебный проект студента факультета Веб-разработки.</h1>
                 <div class="banner-link-container">
@@ -32,7 +32,7 @@
             </div>
         </section>
 
-        <section class="about">
+        <section class="section about">
             <h2 class="section-title section__title_about" id="about-project">О проекте</h2>
             <div class="two-columns">
                 <div class="column">
@@ -62,38 +62,41 @@
             </div>
         </section>
 
-        <section class="technologies" id="technologies">
+        <section class="section technologies" id="technologies">
             <h2 class="section-title section__title_technologies">Технологии</h2>
             <h3 class="technologies__heading">7 технологий</h3>
             <p class="technologies__subtitle">На курсе веб-разработки мы освоили технологии, которые применили в
                 дипломном проекте.</p>
-            <div class="technologies__items">
-                <p class="technologies__item">HTML</p>
-                <p class="technologies__item">CSS</p>
-                <p class="technologies__item">JS</p>
-                <p class="technologies__item">React</p>
-                <p class="technologies__item">Git</p>
-                <p class="technologies__item">Express.js</p>
-                <p class="technologies__item">mongoDB</p>
-            </div>
+            <ul class="technologies__items">
+                <li class="technologies__item">HTML</li>
+                <li class="technologies__item">CSS</li>
+                <li class="technologies__item">JS</li>
+                <li class="technologies__item">React</li>
+                <li class="technologies__item">Git</li>
+                <li class="technologies__item">Express.js</li>
+                <li class="technologies__item">mongoDB</li>
+            </ul>
         </section>
 
-        <section class="student">
+        <section class="section student">
             <h2 class="section-title student__title" id="student">Студент</h2>
             <div class="student-wrapper">
+                <img class="student__photo" src="./images/meee.jpg" alt="Фотография студента">
                 <div class="student-wrapper__info">
-            <h3 class="student__name">Вячеслав</h3>
-            <h4 class="student__education">Фронтенд-разработчик, 21 год</h4>
-            <p class="student__about">Я родился и живу в Москве, в результате работы в разных местах, понял, что я
-                хочу быть фронтенд-разработчиком и не продавать и помогать внедрять программные продукты, а
-                создавать их. Студент Московского финансово-юридического университета. Живу музыкально, спортивно и
-                жизнерадостно. Люблю Битлз и Звёздные войны.</p>
-            </div>
-                <img class="student__photo" src="./images/me.jpg" alt="Фотография студента">
-            </div>
-            <div class="student__socials">
-                <a class="student__social link" target="blank" href="https://vk.com/superior_ublyudok">ВКонтакте</a>
-                <a class="student__social link" target="blank" href="https://github.com/tupokaban">Github</a>
+                    <h3 class="student__name">Вячеслав</h3>
+                    <h4 class="student__education">Фронтенд-разработчик, 21 год</h4>
+                    <p class="student__about">Я родился и живу в Москве, в результате работы в разных местах, понял, что
+                        я
+                        хочу быть фронтенд-разработчиком и не продавать и помогать внедрять программные продукты, а
+                        создавать их. Студент Московского финансово-юридического университета. Живу музыкально,
+                        спортивно и
+                        жизнерадостно. Люблю Битлз и Звёздные войны.</p>
+                    <div class="student__socials">
+                        <a class="student__social link" target="blank"
+                            href="https://vk.com/superior_ublyudok">ВКонтакте</a>
+                        <a class="student__social link" target="blank" href="https://github.com/tupokaban">Github</a>
+                    </div>
+                </div>
             </div>
             <h5 class="student__portfolio">Портфолио</h5>
             <div class="site-links">
@@ -124,17 +127,17 @@
             </div>
         </section>
 
-        <section class="footer">
+        <footer class="footer">
             <h5 class="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h5>
             <div class="footer-info">
                 <p class="footer-info__copyright">© 2020</p>
                 <div class="footer-info__links">
-                    <a href="#" class="footer-info__links link">Яндекс.Практикум</a>
-                    <a href="#" class="footer-info__links link">Github</a>
-                    <a href="#" class="footer-info__links link">Facebook</a>
+                    <a href="#" class="footer-info__link link">Яндекс.Практикум</a>
+                    <a href="#" class="footer-info__link link">Github</a>
+                    <a href="#" class="footer-info__link link">Facebook</a>
                 </div>
             </div>
-        </section>
+        </footer>
     </main>
 
 </body>
