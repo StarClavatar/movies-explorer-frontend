@@ -11,17 +11,60 @@
 </head>
 
 <body class="page">
-    <header class="header">
+
+    <!-- Header -->
+
+    <!-- <header class="header">
         <img class="header__logo" src="./images/logo.svg" alt="логотип">
-        <div class="horizontal-container">
+        <div class="link-container">
             <a href="#" class="link header__link">Регистрация</a>
             <a href="#" class="link link_log-in">Войти</a>
-        </div>
+        </div> -->
 
     </header>
 
+    <header class="header">
+        <div class="link-container">
+            <img class="header__logo" src="./images/logo.svg" alt="логотип">
+            <a href="#" class="link link_films">Фильмы</a>
+            <a href="#" class="link link_saved-films">Сохранённые фильмы</a>
+        </div>
+        <a href="#" class="link link_account">Аккаунт</a>
+
+    </header>
+<!-- header -->
+
     <main class="page">
-        <section class="preview section">
+
+        
+        <section class=" search-form">
+            <form class="search-form__form">
+                <div class="search-form__film-container">
+                    <img src="/images/search-icon.svg" alt="Значок поиска лупа" class="search-form__film-icon" />
+                    <input class="search-form__film-input" type="text" placeholder="Фильм" required />
+                    <button class="search-form__find-button" type="submit"></button>
+                </div>
+                <div class="form-filter">
+                    <input class="form-filter__checkbox" type="checkbox">
+                    <p class="form-filter__subsription">Короткометражки</p>
+                </div>
+            </form>
+        </section>
+        <section class=" movies">
+            <ul class="movies__list">
+                <li class="movie">
+                    <div class="movie__header">
+                        <h5 class="movie__heading">33 слова о дизайне</h5>
+                        <span class="movie__duration">1ч 47м</span>
+                        <button class="movie__favorite-wrapper">
+                            <img class="movie__favorite" src="/images/favorite.svg" alt="иконка добавить в избранное">
+                        </button>
+                    </div>
+                    <img class="movie__img" src="/images/pic__COLOR_pic.png" alt="обложка фильма">
+                </li>
+            </ul>
+        </section>
+        <!--   <section class="preview section">
             <div class="banner">
                 <h1 class="banner__heading">Учебный проект студента факультета Веб-разработки.</h1>
                 <div class="banner-link-container">
@@ -138,6 +181,7 @@
                 </div>
             </div>
         </footer>
+         -->
     </main>
 
 </body>
