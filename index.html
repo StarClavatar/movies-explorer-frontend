@@ -12,37 +12,108 @@
 
 <body class="page">
 
-    <!-- Header -->
+                                        <!-- Header -->
 
     <!-- <header class="header">
         <img class="header__logo" src="./images/logo.svg" alt="логотип">
         <div class="link-container">
             <a href="#" class="link header__link">Регистрация</a>
             <a href="#" class="link link_log-in">Войти</a>
-        </div> -->
+        </div> 
 
-    </header>
+    </header> -->
 
-    <header class="header">
+    <!-- <header class="header">
         <div class="link-container">
             <img class="header__logo" src="./images/logo.svg" alt="логотип">
             <a href="#" class="link link_films">Фильмы</a>
             <a href="#" class="link link_saved-films">Сохранённые фильмы</a>
         </div>
-        <a href="#" class="link link_account">Аккаунт</a>
+        <a href="#" class="link link_account">Аккаунт</a> 
 
-    </header>
-<!-- header -->
+    </header> -->
 
-    <main class="page">
+    <main class="main">
 
-        
+
+                                 <!-- вёрстка регистрации -->
+
+
+        <!-- <section class="profile-form">
+            <h1 class="profile-form__heading">Привет, Батя!</h1>
+            <form class="profile-form__form">
+                <div class="profile-form__form-wrapper">
+                    <span class="profile-form-input__title">Имя</span>
+                    <input class="profile-form-input" required type="text">
+                </div>
+                <div class="register__form-wrapper">
+                    <span class="profile-form-input__title">E-mail</span>
+                    <input class="profile-form-input" required type="text">
+                </div>
+            </form>
+            <a href="#" class="edit">Редактировать</a>
+            <a href="" class="quit">Выйти из аккаунта</a>
+        </section> -->
+
+                                    <!-- Вёрстка логина -->
+
+        <!-- <section class="login">
+            <div class="entrance-form">
+                <img class="entrance-form-logo" src="/images/logo.svg" alt="логотип">
+                <h1 class="entrance-form__header">Рады видеть!</h1>
+                <form class="form">
+                    <span class="form__input-title">E-mail</span>
+                    <input type="text" class="form__input">  
+                    <span class="form__input-title">Пароль</span>
+                    <input type="password" class="form__input">
+                    <span class="error-span">Что-то пошло не так...</span>  
+                </form>
+                <button class="form__button">Войти</button>
+                <span class="is-registered">Ещё не зарегистрированы? <a class="is-registered__registration" href="#">Регистрация</a></span>
+            </div>
+        </section> -->
+
+                                    <!-- Вёрстка регистрации -->
+
+        <!-- <section class="register">
+            <div class="entrance-form">
+                <img class="entrance-form-logo" src="/images/logo.svg" alt="логотип">
+                <h1 class="entrance-form__header">Добро пожаловать!</h1>
+                <form class="form">
+                    <span class="form__input-title">Имя</span>
+                    <input type="text" class="form__input"> 
+                    <span class="form__input-title">E-mail</span>
+                    <input type="password" class="form__input">
+                    <span class="form__input-title">Пароль</span>
+                    <input type="password" class="form__input">
+                    <span class="error-span">Что-то пошло не так...</span> 
+                </form>
+                <button class="form__button">Зарегистрироваться</button>
+                <span class="is-registered">Уже зарегистрированы? <a class="is-registered__registration" href="#">Войти</a></span>
+            </div>
+        </section> -->
+
+                                            <!-- 404 -->
+
+        <section class="error">
+            <div class="error__wrapper">
+                <h1 class="error__title">404</h1>
+                <p class="error__subtitle">Страница не найдена</p>
+                <a class="error__back-link" href="#">Назад</a>
+            </div>
+        </section>
+
+
+
+
+
+        <!--         
         <section class=" search-form">
             <form class="search-form__form">
                 <div class="search-form__film-container">
                     <img src="/images/search-icon.svg" alt="Значок поиска лупа" class="search-form__film-icon" />
                     <input class="search-form__film-input" type="text" placeholder="Фильм" required />
-                    <button class="search-form__find-button" type="submit"></button>
+                    <button class="button search-form__find-button" type="submit"></button>
                 </div>
                 <div class="form-filter">
                     <input class="form-filter__checkbox" type="checkbox">
@@ -50,20 +121,73 @@
                 </div>
             </form>
         </section>
-        <section class=" movies">
+        <section class="movies">
             <ul class="movies__list">
                 <li class="movie">
                     <div class="movie__header">
                         <h5 class="movie__heading">33 слова о дизайне</h5>
                         <span class="movie__duration">1ч 47м</span>
-                        <button class="movie__favorite-wrapper">
+                        <button class="button movie__favorite-wrapper">
+                            <img class="movie__favorite" src="/images/favorite.svg" alt="иконка добавить в избранное">
+                        </button>
+                    </div>
+                    <img class="movie__img" src="/images/pic__COLOR_pic.png" alt="обложка фильма">
+                </li>
+                <li class="movie">
+                    <div class="movie__header">
+                        <h5 class="movie__heading">33 слова о дизайне</h5>
+                        <span class="movie__duration">1ч 47м</span>
+                        <button class="button movie__favorite-wrapper">
+                            <img class="movie__favorite" src="/images/favorite.svg" alt="иконка добавить в избранное">
+                        </button>
+                    </div>
+                    <img class="movie__img" src="/images/pic__COLOR_pic.png" alt="обложка фильма">
+                </li>
+                <li class="movie">
+                    <div class="movie__header">
+                        <h5 class="movie__heading">33 слова о дизайне</h5>
+                        <span class="movie__duration">1ч 47м</span>
+                        <button class="button movie__favorite-wrapper">
+                            <img class="movie__favorite" src="/images/favorite.svg" alt="иконка добавить в избранное">
+                        </button>
+                    </div>
+                    <img class="movie__img" src="/images/pic__COLOR_pic.png" alt="обложка фильма">
+                </li>
+                <li class="movie">
+                    <div class="movie__header">
+                        <h5 class="movie__heading">33 слова о дизайне</h5>
+                        <span class="movie__duration">1ч 47м</span>
+                        <button class="button movie__favorite-wrapper">
+                            <img class="movie__favorite" src="/images/favorite.svg" alt="иконка добавить в избранное">
+                        </button>
+                    </div>
+                    <img class="movie__img" src="/images/pic__COLOR_pic.png" alt="обложка фильма">
+                </li>
+                <li class="movie">
+                    <div class="movie__header">
+                        <h5 class="movie__heading">33 слова о дизайне</h5>
+                        <span class="movie__duration">1ч 47м</span>
+                        <button class="button movie__favorite-wrapper">
+                            <img class="movie__favorite" src="/images/favorite.svg" alt="иконка добавить в избранное">
+                        </button>
+                    </div>
+                    <img class="movie__img" src="/images/pic__COLOR_pic.png" alt="обложка фильма">
+                </li>
+                <li class="movie">
+                    <div class="movie__header">
+                        <h5 class="movie__heading">33 слова о дизайне</h5>
+                        <span class="movie__duration">1ч 47м</span>
+                        <button class="button movie__favorite-wrapper">
                             <img class="movie__favorite" src="/images/favorite.svg" alt="иконка добавить в избранное">
                         </button>
                     </div>
                     <img class="movie__img" src="/images/pic__COLOR_pic.png" alt="обложка фильма">
                 </li>
             </ul>
-        </section>
+
+            <button class="button  movies__more-button">Ещё</button>
+
+        </section> -->
         <!--   <section class="preview section">
             <div class="banner">
                 <h1 class="banner__heading">Учебный проект студента факультета Веб-разработки.</h1>
@@ -169,8 +293,8 @@
                 </a>
             </div>
         </section>
-
-        <footer class="footer">
+    -->
+        <!-- <footer class="footer">
             <h5 class="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h5>
             <div class="footer-info">
                 <p class="footer-info__copyright">© 2020</p>
@@ -180,8 +304,7 @@
                     <a href="#" class="footer-info__link link">Facebook</a>
                 </div>
             </div>
-        </footer>
-         -->
+        </footer> -->
     </main>
 
 </body>
