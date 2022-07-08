@@ -191,8 +191,8 @@ function App(props) {
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
-            <Header emal={email} onSignOut={handleSignOut}/>
             <Router>
+                <Header emal={email} onSignOut={handleSignOut}/>
                 <Routes>
                   <Route path="/" element={<Main />} />
                   <Route path="/movies" element={<Movies />} />
