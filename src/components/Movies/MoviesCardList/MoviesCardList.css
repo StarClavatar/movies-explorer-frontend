@@ -1,0 +1,28 @@
+.movies {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.movies__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1165px;
+    padding: 0;
+}
+
+.movies__more-button {
+    width: 320px;
+    height: 36px;
+    background-color: transparent;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+    margin: 80px auto;
+}
+
+.button:hover {
+    transition: .3s;
+    opacity: 0.5;
+}
+

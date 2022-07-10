@@ -1,0 +1,52 @@
+
+.movie {
+    padding: 0;
+    margin: 0 24px 30px 0;
+    list-style: none;
+    max-width: 364px;
+    height: 271px;
+    background-color: #FDFDFD;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.movie__header {
+    position: relative;
+    padding: 14px;
+}
+
+.movie__heading {
+    margin: 0 0 9px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.movie__duration {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: #A0A0A0;
+}
+
+/* .movie__favorite {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+} */
+
+.movie__favorite-wrapper {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+}
+
