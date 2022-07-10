@@ -1,0 +1,99 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px;
+    height: 74px;
+    align-items: center;
+    width: 100%;
+}
+
+.header__logo {
+    margin-right: 44px;
+}
+
+.header__link {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.link-container {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.link:hover {
+    opacity: 0.5;
+}
+
+.link_log-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 76px;
+    height: 32px;
+    background-color: #2BE080;
+    border-radius: 3px;
+    margin-left: 30px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+.link_films {
+    margin-right: 16px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.link_saved-films {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.link_account {
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 8px 20px;
+}
+
+@media screen and (max-width: 320px) {
+    .link_log-in {
+        font-size: 10px;
+        margin-left: 14px;
+        width: 54px;
+        height: 26px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        margin: 0 30px 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header {
+        margin: 0 14px 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .header__link {
+        font-size: 10px;
+    }
+}

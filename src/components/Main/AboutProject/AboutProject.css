@@ -1,0 +1,206 @@
+.about {
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        max-width: 668px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about {
+        max-width: 284px;
+    }
+}
+
+.section__title_about {
+    margin: 110px 0 70px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .section__title_about {
+        margin-top: 90px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .section__title_about {
+        margin-top: 70px;
+        margin-bottom: 60px;
+    }
+}
+
+.section {
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+@media screen and (max-width: 768px) {
+    .section {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .section {
+        margin-right: 18px;
+        margin-left: 18px;
+    }
+}
+
+.section:first-child {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.section:nth-child(3) {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.two-columns {
+    display: flex;
+    margin-bottom: 110px;
+}
+
+@media screen and (max-width: 768px) {
+    .two-columns {
+        margin-bottom: 93px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .two-columns {
+        margin-bottom: 60px;
+        flex-direction: column;
+    }
+}
+
+.column {
+    max-width: 550px;
+    margin-right: 40px;
+
+}
+
+.column__title {
+    margin: 0 0 26px 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 768px) {
+    .column__title {
+        margin-bottom: 22px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .column__title {
+        margin-bottom: 16px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
+.column__subtitle {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .column__subtitle {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .column__subtitle {
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
+
+.about__diagram {
+    display: flex;
+    justify-content: center;
+    max-width: 1440px;
+    margin-bottom: 110px;
+}
+
+@media screen and (max-width: 768px) {
+    .about__diagram {
+        margin-bottom: 90px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about__diagram {
+        margin-bottom: 70px;
+    }
+}
+
+.diagram-backend {
+    width: 25%;
+}
+
+.diagram-frontend {
+    width: 75%;
+}
+
+.diagram__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.diagram__cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+@media screen and (max-width: 320px) {
+    .diagram__cell {
+        font-size: 11px;
+        line-height: 13px;
+    }
+}
+
+.diagram__cell_backend {
+    background-color: #2BE080;
+}
+
+.diagram__cell_frontend {
+    background-color: #F2F2F2;
+}
+
+.diagram__caption {
+    text-align: center;
+    margin: 14px 0 0 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+}
+
+@media screen and (max-width: 320px) {
+    .diagram__caption {
+        font-size: 11px;
+        line-height: 13px;
+        margin-top: 10px;
+    }
+}
+

@@ -1,0 +1,128 @@
+.technologies {
+    background-color: #F5F5F5;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .technologies {
+        padding: 90px 0 90px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .technologies {
+        padding: 70px 0 70px;
+        background-color: #fff;
+    }
+}
+
+.section__title_technologies {
+    margin: 0 70px 90px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .section__title_technologies {
+        margin: 0 50px 80px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .section__title_technologies {
+        margin: 0 14px 50px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .section__title_technologies {
+        margin-bottom: 60px;
+    }
+}
+
+.technologies__heading {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    margin: 0 0 26px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .technologies__heading {
+        margin-bottom: 22px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .technologies__heading {
+        margin-bottom: 24px;
+        font-size: 30px;
+        line-height: 36px;
+    }
+}
+
+.technologies__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    max-width: 460px;
+    margin: 0 auto 100px auto;
+}
+
+@media screen and (max-width: 768px) {
+    .technologies__subtitle {
+        margin-bottom: 83px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .technologies__subtitle {
+        margin-bottom: 50px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
+
+.technologies__items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.technologies__item {
+    width: 90px;
+    height: 60px;
+    margin: 0 10px 0 0;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.04em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .technologies__item {
+        width: 84px;
+        height: 57px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 658px) {
+    .technologies__item {
+        margin-bottom: 10px;
+    }
+}
