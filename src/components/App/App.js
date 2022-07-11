@@ -31,7 +31,6 @@ import Footer from '../Footer/Footer';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-
 function App(props) {
     // const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
     // const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
