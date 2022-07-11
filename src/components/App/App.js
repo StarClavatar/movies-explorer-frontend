@@ -195,11 +195,11 @@ function App(props) {
                 <Header emal={email} onSignOut={handleSignOut}/>
                 <Routes>
                   <Route path="/" element={<Main />} />
-                  <Route path="/movies" element={<Movies />} />
+                  {/* <Route path="/movies" element={<Movies />} />
                   <Route path="/saved-movies" element={<SavedMovies />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/signin" element={<LogIn />} />
-                  <Route path="/signup" element={<Register />} />
+                  <Route path="/signup" element={<Register />} /> */}
                       {/* <ProtectedRoute
                           component={Main}
                           email={email}

@@ -1,4 +1,3 @@
-import './Main.css';
 import Promo from './Promo/Promo';
 import AboutProject from './AboutProject/AboutProject';
 import Techs from './Techs/Techs';
@@ -9,7 +8,7 @@ import Portfolio from './Portfolio/Portfolio';
 function Main(props) {
     return (
         <div>
-            Main
+            
             <Promo />
             <AboutProject />
             <Techs />
