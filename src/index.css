@@ -1,13 +1,29 @@
-body {
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/inter/inter.css);
+
+
+.page {
+  max-width: 1280px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin: 0 auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (max-width: 768px) {
+  .page {
+      max-width: 767px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page {
+      max-width: 320px;
+  }
 }
