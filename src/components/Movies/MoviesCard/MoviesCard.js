@@ -1,6 +1,6 @@
 import './MoviesCard.css';
-import favorite from '../../images/favorite.svg';
-import pic__COLOR_pic from '../../images/pic__COLOR_pic.png';
+import favorite from '../../../images/favorite.svg';
+import pic__COLOR_pic from '../../../images/pic__COLOR_pic.png';
 
 function MoviesCard(props) {
     return (

@@ -1,27 +1,27 @@
 import './MoviesCardList.css';
-import movieCard from '../MoviesCard/MoviesCard';
+import MovieCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList(props) {
     return (
         <section class="movies">
             <ul class="movies__list">
                 <li class="movie">
-                    <movieCard />
+                    <MovieCard />
                 </li>
                 <li class="movie">
-                    <movieCard />
+                    <MovieCard />
                 </li>
                 <li class="movie">
-                    <movieCard />
+                    <MovieCard />
                 </li>
                 <li class="movie">
-                    <movieCard />
+                    <MovieCard />
                 </li>
                 <li class="movie">
-                    <movieCard />
+                    <MovieCard />
                 </li>
                 <li class="movie">
-                    <movieCard />
+                    <MovieCard />
                 </li>
             </ul>
 

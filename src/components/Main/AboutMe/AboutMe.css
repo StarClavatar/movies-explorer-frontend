@@ -1,18 +1,24 @@
 .student {
-    margin: 0 auto 125px;
+    margin: 0 70px 125px;
     max-width: 1140px;
 }
 
 @media screen and (max-width: 768px) {
     .student {
-        margin: 0 auto 90px;
+        margin: 0 50px 90px;
         max-width: 668px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .student {
+        margin: 0 14px 90px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .student {
-        margin: 0 auto 70px;
+        margin: 0 14px 70px;
         max-width: 292px;
     }
 }
@@ -37,7 +43,7 @@
 
 
 .student__title {
-    margin: 110px auto 66px;
+    margin: 110px 0 66px;
 }
 
 @media screen and (max-width: 768px) {

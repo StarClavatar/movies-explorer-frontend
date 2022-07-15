@@ -8,7 +8,6 @@ import Portfolio from './Portfolio/Portfolio';
 function Main(props) {
     return (
         <div>
-            
             <Promo />
             <AboutProject />
             <Techs />

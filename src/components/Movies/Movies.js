@@ -1,10 +1,13 @@
 import './Movies.css';
+import SearchForm from './SearchForm/SearchForm';
+import MoviesCardList from './MoviesCardList/MoviesCardList';
 
 function Movies(props) {
     return (
-        <div>
-            Movies
-        </div>    
+        <>
+           <SearchForm />
+           <MoviesCardList />
+        </>    
     );    
 }
 

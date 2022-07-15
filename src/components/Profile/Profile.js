@@ -4,7 +4,7 @@ function Profile(props) {
     return (
         <div>
             <section className="profile-form">
-            <h1 className="profile-form__heading">Привет, Батя!</h1>
+            <h1 className="profile-form__heading">Привет, Имя!</h1>
             <form className="profile-form__form">
                 <div className="profile-form__form-wrapper">
                     <span className="profile-form-input__title">Имя</span>

@@ -1,10 +1,9 @@
-
 .movie {
     padding: 0;
-    margin: 0 24px 30px 0;
     list-style: none;
     max-width: 364px;
-    height: 271px;
+    width: 100%;
+    max-height: 271px;
     background-color: #FDFDFD;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 }
@@ -28,15 +27,6 @@
     color: #A0A0A0;
 }
 
-/* .movie__favorite {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background-color: transparent;
-    width: 30px;
-    height: 30px;
-} */
-
 .movie__favorite-wrapper {
     position: absolute;
     top: 14px;
@@ -48,5 +38,22 @@
     justify-content: center;
     align-items: center;
     width: 34px;
+}
+
+.movie__img {
+    max-width: 364px;
+    max-height: 203px;
+}
+
+@media screen and (max-width: 360px) {
+    .movie {
+        max-width: 300px;
+        min-height: 236px;
+    }
+
+    .movie__img {
+        max-width: 300px;
+        max-height: 168px;
+    }
 }
 

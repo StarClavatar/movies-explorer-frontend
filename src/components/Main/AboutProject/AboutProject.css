@@ -93,6 +93,10 @@
     letter-spacing: -0.04em;
 }
 
+.column__title:first-child {
+    margin-top: 0;
+}
+
 @media screen and (max-width: 768px) {
     .column__title {
         margin-bottom: 22px;
@@ -118,6 +122,13 @@
     .column__subtitle {
         font-size: 12px;
         line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    
+    .two-columns .column:first-child {
+        margin-bottom: 56px;
     }
 }
 
@@ -203,4 +214,3 @@
         margin-top: 10px;
     }
 }
-
