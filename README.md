@@ -1,2 +1,3 @@
 # movies-explorer-frontend
-фронтэнд часть дипломной работы яндекс практикум
+
+ссылка на pull request https://github.com/tupokaban/movies-explorer-frontend/pull/3#issue-1306639149
