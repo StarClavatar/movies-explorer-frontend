@@ -3,29 +3,29 @@ import MovieCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList(props) {
     return (
-        <section class="movies">
-            <ul class="movies__list">
-                <li class="movie">
+        <section className="movies">
+            <ul className="movies__list">
+                <li className="movie">
                     <MovieCard />
                 </li>
-                <li class="movie">
+                <li className="movie">
                     <MovieCard />
                 </li>
-                <li class="movie">
+                <li className="movie">
                     <MovieCard />
                 </li>
-                <li class="movie">
+                <li className="movie">
                     <MovieCard />
                 </li>
-                <li class="movie">
+                <li className="movie">
                     <MovieCard />
                 </li>
-                <li class="movie">
+                <li className="movie">
                     <MovieCard />
                 </li>
             </ul>
 
-            <button class="button  movies__more-button">Ещё</button>
+            <button className="button  movies__more-button">Ещё</button>
 
         </section>
     );    
