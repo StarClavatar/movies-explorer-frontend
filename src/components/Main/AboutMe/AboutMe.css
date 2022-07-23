@@ -1,0 +1,237 @@
+.student {
+    margin: 0 70px 125px;
+    max-width: 1140px;
+}
+
+@media screen and (max-width: 768px) {
+    .student {
+        margin: 0 50px 90px;
+        max-width: 668px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .student {
+        margin: 0 14px 90px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .student {
+        margin: 0 14px 70px;
+        max-width: 292px;
+    }
+}
+
+.student-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 615px) {
+    .student-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1034px) {
+    .student-wrapper__info {
+        margin-right: 49px;
+    }
+}
+
+
+
+.student__title {
+    margin: 110px 0 66px;
+}
+
+@media screen and (max-width: 768px) {
+    .student__title {
+        margin-top: 90px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .student__title {
+        margin-bottom: 60px;
+        margin-top: 70px;
+    }
+}
+
+.student__name {
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    margin: 0 0 18px 0;
+}
+
+@media screen and (max-width:768px) {
+    .student__name {
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .student__name {
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 20px;
+    }
+}
+
+.student__photo {
+    max-width: 270px;
+    max-height: 327px;
+    border-radius: 10px;
+    object-fit: cover;
+    order: 2;
+}
+
+@media screen and (max-width:768px) {
+    .student__photo {
+        max-width: 255px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .student__photo {
+        max-width: 292px;
+        order: -1;
+    }
+}
+
+@media screen and (max-width:615px) {
+    .student__photo {
+        order: -1;
+        margin-bottom: 40px;
+    }
+}
+
+.student__education {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+}
+
+@media screen and (max-width:768px) {
+    .student__education {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .student__education {
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
+
+.student__about {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 600px;
+    mix-blend-mode: normal;
+    margin: 26px 0 99px;
+}
+
+@media screen and (max-width:768px) {
+    .student__about {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 20px 0 87px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .student__about {
+        font-size: 11px;
+        line-height: 16px;
+        margin: 20px 0 40px;
+    }
+}
+
+.student__socials {
+    margin-bottom: 100px;
+}
+
+@media screen and (max-width:768px) {
+    .student__socials {
+        margin-bottom: 90px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .student__socials {
+        margin-bottom: 69px;
+    }
+}
+
+.student__social {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+@media screen and (max-width:320px) {
+    .student__social {
+        margin-right: 26px;
+    }
+}
+
+.student__portfolio {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+    mix-blend-mode: normal;
+    margin: 0 0 50px;
+}
+
+@media screen and (max-width:320px) {
+    .student__portfolio {
+        margin-bottom: 40px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+.site-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-links__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #E8E8E8 1px solid;
+    padding-bottom: 19px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+}
+
+@media screen and (max-width:768px) {
+    .site-links__link {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .site-links__link {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}

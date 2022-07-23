@@ -1,0 +1,59 @@
+.movie {
+    padding: 0;
+    list-style: none;
+    max-width: 364px;
+    width: 100%;
+    max-height: 271px;
+    background-color: #FDFDFD;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.movie__header {
+    position: relative;
+    padding: 14px;
+}
+
+.movie__heading {
+    margin: 0 0 9px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.movie__duration {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: #A0A0A0;
+}
+
+.movie__favorite-wrapper {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+}
+
+.movie__img {
+    max-width: 364px;
+    max-height: 203px;
+}
+
+@media screen and (max-width: 360px) {
+    .movie {
+        max-width: 300px;
+        min-height: 236px;
+    }
+
+    .movie__img {
+        max-width: 300px;
+        max-height: 168px;
+    }
+}
+

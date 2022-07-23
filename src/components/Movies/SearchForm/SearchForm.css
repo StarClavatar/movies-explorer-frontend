@@ -1,0 +1,179 @@
+.search-form {
+    width: 100%;
+    margin: 70px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 69px;
+    border-bottom: 1px solid #E8E8E8;
+    max-width: 1140px;
+}
+
+@media screen and (max-width: 1215px) {
+    .search-form__wrapper {
+        margin: 0 70px;
+    }
+}
+
+.search-form__form {
+    position: relative;
+    max-width: 1140px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F9F9F9;
+    border-radius: 9px;
+    min-height: 72px;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.search-form__film-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-form__film-input {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+    border: none;
+    background-color: #F9F9F9;
+    outline: none;
+}
+
+.search-form__film-icon {
+    margin-right: 17px;
+}
+
+.search-form__find-button {
+    height: 34px;
+    width: 34px;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    right: 19px;
+}
+
+.form-filter {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    border-left: 1px solid #E8E8E8;
+    height: 40px;
+    margin-left: 30px;
+}
+
+.form-filter__checkbox {
+    margin-right: 14px;
+    position: relative;
+    width: 36px;
+    height: 20px;
+    appearance: none;
+    background-color: #c6c6c6;
+    border-radius: 20px;
+    transition: .5s;
+}
+
+.form-filter__checkbox:checked {
+    background-color: #2BE080;
+}
+
+.form-filter__checkbox::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 20px;
+    top: 2px;
+    left: 2px;
+    background-color: #fff;
+    transition: .5s;
+}
+
+.form-filter__checkbox:checked:before {
+    left: 18px;
+
+}
+
+.form-filter__subsription {
+    margin: 0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+    .search-form {
+        margin: 80px 0 64px;
+    }
+
+    .search-form__wrapper {
+        margin: 0 30px;
+        padding-bottom: 109px;
+    }
+
+    .form-filter {
+        background-color: #fff;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .search-form {
+        margin: 80px 0 54px;
+    }
+    
+    .search-form__form {
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        padding: 0;
+    }
+
+    .search-form__wrapper {
+        padding: 0 0 45px;
+        width: 100%;
+        margin: 0 10px 0;
+    }
+
+    .form-filter {
+        background-color: #fff;
+    }
+
+    .search-form__find-button {
+        right: 19px;
+    }
+
+    .form-filter {
+        border-left: none;
+        margin-top: 45px;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .search-form__film-input {
+        width: 100%;
+    }
+
+
+    .search-form__film-container {
+        min-height: 72px;
+        background-color: #F9F9F9;
+        border-radius: 9px;
+        padding: 0 19px;
+        box-sizing: border-box;
+        padding-right: 60px;
+    }
+
+}
