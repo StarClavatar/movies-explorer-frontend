@@ -1,0 +1,107 @@
+.entrance-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 369px;
+    margin-top: 70px;
+}
+
+.entrance-form-logo {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 40px;
+}
+
+.entrance-form__header {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 221px 0;
+    position: relative;
+}
+
+.form__input-title {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #A0A0A0;
+}
+
+.form__input {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    border: 0;
+    border-bottom: 1px solid #E8E8E8;
+    margin: 5px 0 24px 0;
+    padding: 0 0 10px 0;
+    outline: 0;
+}
+
+.form__input:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* модификаторы инпутов */
+.form__input_valid {
+    border-bottom: 1px solid #2BE080;
+}
+
+.form__input_invalid {
+    color: #EE3465;
+}
+
+.error-span {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #EE3465;
+    visibility: hidden;
+}
+
+.error-span_active {
+    visibility: visible;
+}
+/* модификаторы инпутов */
+
+
+.form__button {
+    width: 396px;
+    height: 45px;
+    background-color: #2BE080;
+    border: 0;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+.is-registered {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+    text-align: center;
+}
+
+.is-registered__registration {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #2BE080;
+    margin-left: 6px;
+}
