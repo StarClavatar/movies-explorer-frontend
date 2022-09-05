@@ -3,7 +3,7 @@ import favorite from '../../../images/favorite.svg';
 import favoriteActive from '../../../images/favorite_active.svg';
 
 function MoviesCard(props) {
-    const {name, duration, savedMovieId, imageLink} = props.movie;
+    const {nameRU, duration, savedMovieId, imageLink} = props.movie;
     const hrDuration = `${Math.trunc(duration/60)}ч ${duration % 60}м` 
     
     function onFavoriteClick() {
@@ -13,7 +13,7 @@ function MoviesCard(props) {
     return (
         <li className={`movie${!props.shown ? ' movie_hidden' : ''}`} >
             <div className="movie__header">
-                <h5 className="movie__heading">{name}</h5>
+                <h5 className="movie__heading">{nameRU}</h5>
                 <span className="movie__duration">{hrDuration}</span>
                 <button className="button movie__favorite-wrapper">
                 <img className="movie__favorite" 
