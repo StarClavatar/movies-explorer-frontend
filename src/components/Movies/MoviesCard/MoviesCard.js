@@ -3,7 +3,7 @@ import favorite from '../../../images/favorite.svg';
 import favoriteActive from '../../../images/favorite_active.svg';
 
 function MoviesCard(props) {
-    const {nameRU, duration, savedMovieId, imageLink} = props.movie;
+    const {nameRU, duration, savedMovieId, imageLink, trailerLink} = props.movie;
     const hrDuration = `${Math.trunc(duration/60)}ч ${duration % 60}м` 
     
     function onFavoriteClick() {
@@ -22,7 +22,7 @@ function MoviesCard(props) {
                 />
                 </button>
             </div>
-            <a href={props.trailerLink} target="_blank" rel="noreferrer">
+            <a href={trailerLink} target="_blank" rel="noreferrer">
                 <img className="movie__img" src={imageLink} alt="обложка фильма" />
             </a>
         </li>

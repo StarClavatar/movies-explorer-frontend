@@ -29,6 +29,7 @@ function App(props) {
     const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(false);
     const [currentUser, setCurrentUser] = React.useState(null);
     const [moviesList, setMoviesList] = React.useState(undefined);
+    const [savedMoviesList, setSavedMoviesList] = React.useState(undefined);
     const [tooltipMessage, setTooltipMessage] = React.useState('');
     const [tooltipIsOk, setTooltipIsOk] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
@@ -86,6 +87,7 @@ function App(props) {
                 return false;
             })
             setMoviesList(filtered);
+
             setLoading(false);
         })
         .catch(err=>{
@@ -204,13 +206,13 @@ function App(props) {
                                 // moviesAr={}
                             />
                         } />
-                        <Route path='/profile' element={
-                            <ProtectedRoute component={Profile} 
-                                onEditProfile={handleUpdateUser}
-                                onSignOut={handleSignOut}
-                            />
-                        } />
                     </Route>
+                    <Route path='/profile' element={
+                        <ProtectedRoute component={Profile} 
+                            onEditProfile={handleUpdateUser}
+                            onSignOut={handleSignOut}
+                        />
+                    } />
                     <Route path='/signin' element={<LogIn onAuthorise={handleAuthorize}/>} />
                     <Route path='/signup' element={<Register onRegister={handleRegister}/>} />
                 </Routes>

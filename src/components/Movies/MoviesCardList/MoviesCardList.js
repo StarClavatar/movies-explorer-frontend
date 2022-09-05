@@ -10,7 +10,7 @@ function useCardShowParams() {
         if (windowWidth>=1280) {return {total: 12, step: 3}}
         if (windowWidth>768 && windowWidth<1280) {return {total: 8, step: 2}}
         if (windowWidth>480 && windowWidth<768) {return {total: 5, step: 2}}
-        if (windowWidth>=320 && windowWidth<=480) {return {total: 5, step: 2}}
+        if (windowWidth>=1 && windowWidth<=480) {return {total: 5, step: 2}}
     }
     
     const [cardsShowParams, setCardsShowParams] = React.useState(getCardsShowParams(window.innerWidth));
