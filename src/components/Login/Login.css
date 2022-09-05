@@ -5,7 +5,8 @@
     flex-direction: column;
     justify-content: center;
     max-width: 369px;
-    margin-top: 70px;
+    width: 100%;
+    margin: 70px auto 0 auto;
 }
 
 .entrance-form-logo {
@@ -24,7 +25,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    margin: 40px 0 221px 0;
+    margin: 40px 0 0 0;
     position: relative;
 }
 
@@ -89,7 +90,7 @@
     line-height: 17px;
     text-align: center;
     color: #FFFFFF;
-    margin-bottom: 16px;
+    margin: 221px 0 16px 0;
 }
 
 .is-registered {

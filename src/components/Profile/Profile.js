@@ -40,7 +40,7 @@ function Profile(props) {
                             onChange={handleNameChange}
                         />
                     </div>
-                    <div className="register__form-wrapper">
+                    <div className="profile-form__form-wrapper">
                         <span className="profile-form-input__title">E-mail</span>
                         <input className="profile-form-input" 
                             required 
@@ -50,8 +50,10 @@ function Profile(props) {
                             onChange={handleEmailChange} 
                         />
                     </div>
-                    <button className="edit" type="submit">Редактировать</button>
-                    <button className="quit" onClick={props.onSignOut}>Выйти из аккаунта</button>
+                    <div className='button-container'>
+                    <button className="form-button form-button_edit" type="submit">Редактировать</button>
+                    <button className="form-button form-button_quit" onClick={props.onSignOut}>Выйти из аккаунта</button>
+                    </div>
                 </form>
             </section>
         </div>    

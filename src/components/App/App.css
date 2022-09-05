@@ -9,8 +9,8 @@
   font-family: 'Inter';
   font-style: normal;
   background-color: white;
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   flex-direction: column;
   margin: 0 auto;
 }
