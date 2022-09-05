@@ -5,8 +5,12 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 function Movies(props) {
     return (
         <>
-           <SearchForm />
-           <MoviesCardList />
+            <SearchForm onSearch={props.onSearch} />
+            <MoviesCardList 
+                isLoading={props.isLoading}
+                movies={props.movies}
+                favoriteHandler={props.favoriteHandler} 
+            />
         </>    
     );    
 }

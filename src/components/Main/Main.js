@@ -3,8 +3,6 @@ import AboutProject from './AboutProject/AboutProject';
 import Techs from './Techs/Techs';
 import AboutMe from './AboutMe/AboutMe';
 import Portfolio from './Portfolio/Portfolio';
-import Register from '../Register/Register';
-
 
 function Main(props) {
     return (

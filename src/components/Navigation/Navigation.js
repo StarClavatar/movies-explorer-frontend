@@ -1,5 +1,5 @@
 import './Navigation.css';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import closeButton from '../../images/close.svg'
 
 function Navigation(props) {
@@ -19,9 +19,3 @@ function Navigation(props) {
 }
 
 export default Navigation;
-
-
-                {/* <div class="link-container">
-                    <a href="#" class="link header__link">Регистрация</a>
-                    <a href="#" class="link link_log-in">Войти</a>
-                </div>  */}

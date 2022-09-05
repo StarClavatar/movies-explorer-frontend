@@ -1,21 +1,38 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Login.css';
-import logo from '../../images/logo.svg'
+import logo from '../../images/logo.svg';
 
 function Login(props) {
+    const [email, setEmail] = React.useState ('');
+    const [password, setPassword] = React.useState ('');
+
+    function handleEmailChange(e) {setEmail(e.target.value)};
+    function handlePasswordChange(e) {setPassword(e.target.value)};
+
+    function handleAuthorize(e){
+        e.preventDefault();
+        props.onAuthorise(email, password);
+    }
+
     return (
-        <section class="login">
-            <div class="entrance-form">
-                <img class="entrance-form-logo" src={logo} alt="логотип"/>
-                <h1 class="entrance-form__header">Рады видеть!</h1>
-                <form class="form">
-                    <span class="form__input-title">E-mail</span>
-                    <input type="text" class="form__input"/>  
-                    <span class="form__input-title">Пароль</span>
-                    <input type="password" class="form__input"/>
-                    <span class="error-span">Что-то пошло не так§..</span>  
+        <section className="login">
+            <div className="entrance-form">
+                <img className="entrance-form-logo" src={logo} alt="логотип"/>
+                <h1 className="entrance-form__header">Рады видеть!</h1>
+                <form className="form" onSubmit={handleAuthorize}>
+                    <span className="form__input-title">E-mail</span>
+                    <input className="form__input" type="email" required placeholder="Email" onChange={handleEmailChange}/>
+                    <span className="form__input-title">Пароль</span>
+                    <input className="form__input" type="password" required placeholder="Пароль" onChange={handlePasswordChange}/>
+                    <span className="error-span">Что-то пошло не так§..</span>
+                    <button className="form__button" type="submit">Войти</button>
                 </form>
-                <button class="form__button">Войти</button>
-                <span class="is-registered">Ещё не зарегистрированы? <a class="is-registered__registration" href="#">Регистрация</a></span>
+                <span className="is-registered">
+                    Ещё не зарегистрированы?
+                    <Link to="/signup" className="is-registered__registration">Регистрация</Link>
+                </span>
+                    
             </div>
         </section>  
     );    

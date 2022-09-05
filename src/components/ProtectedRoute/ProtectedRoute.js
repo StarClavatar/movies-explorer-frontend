@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 // {component:Component, ...props} - это не объект, это деструктуризация! 
 // на выходе из этого выражения из объекта props значение свойства
@@ -7,12 +8,14 @@ import { Route, Redirect } from "react-router-dom";
 // удалиться свойство component и объект props будет передан вторым параметром функции               
 // https://learn.javascript.ru/destructuring?ysclid=l4yld617ci293656923
 const ProtectedRoute = ({ component: Component, ...props  }) => {
+  const currentUser = React.useContext(CurrentUserContext);
+
   return (
-    <Route>
+    <>
       {
-        () => props.email ? <Component {...props} /> : <Redirect to="./sign-in" />
+        currentUser ? <Component {...props} /> : <Navigate to="/signin" />
       }
-    </Route>
+    </>
 )}
 
 export default ProtectedRoute;

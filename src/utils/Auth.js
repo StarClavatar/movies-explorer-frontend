@@ -1,15 +1,15 @@
 // export const BASE_URL = 'https://auth.nomoreparties.co';
-export const BASE_URL = 'https://api.clavatar.nomoreparties.sbs';
+export const BASE_URL = 'https://movies-api.clavatar.nomoreparties.sbs';
 // export const BASE_URL = 'http://localhost:3000';
 
-export function register (email, password) {
+export function register (name, email, password) {
     return fetch(`${BASE_URL}/signup`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({password, email})
+        body: JSON.stringify({email, password, name})
     })
     .then((response) => {
         return response.json()
@@ -17,7 +17,9 @@ export function register (email, password) {
                 return { 'code': response.status,'body': reslt }
             });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+        console.log(err)
+    });
 };
 
 export function authorize (email, password) {

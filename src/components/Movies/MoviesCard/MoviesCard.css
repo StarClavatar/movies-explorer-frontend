@@ -8,6 +8,10 @@
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
 }
 
+.movie_hidden {
+    display: none;
+}
+
 .movie__header {
     position: relative;
     padding: 14px;
@@ -43,6 +47,7 @@
 .movie__img {
     max-width: 364px;
     max-height: 203px;
+    object-fit: contain;
 }
 
 @media screen and (max-width: 360px) {
