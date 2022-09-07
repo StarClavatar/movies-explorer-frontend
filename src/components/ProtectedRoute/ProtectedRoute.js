@@ -9,7 +9,6 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 // https://learn.javascript.ru/destructuring?ysclid=l4yld617ci293656923
 const ProtectedRoute = ({ component: Component, ...props  }) => {
   const currentUser = React.useContext(CurrentUserContext);
-
   return (
     <>
       {

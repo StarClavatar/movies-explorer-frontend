@@ -10,7 +10,6 @@ import {
 import PageWrapper from '../PageWrapper/PageWrapper';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
-import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import LogIn from '../Login/Login';
 import Register from '../Register/Register';
@@ -30,6 +29,7 @@ function App(props) {
     const [currentUser, setCurrentUser] = React.useState(null);
     const [moviesList, setMoviesList] = React.useState(undefined);
     const [savedMoviesList, setSavedMoviesList] = React.useState(undefined);
+    const [savedMoviesFiltered, setSavedMoviesFiltered] = React.useState(undefined);
     const [tooltipMessage, setTooltipMessage] = React.useState('');
     const [tooltipIsOk, setTooltipIsOk] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
@@ -68,32 +68,63 @@ function App(props) {
         setIsInfoTooltipOpen(false);
     }
 
-    function newSearchHandler(searchText, shorts) {
+    function moviesSearchHandler(searchText, shorts) {
         setLoading(true);
         // запрашиваем все вильмы и все сохраненные одними промисом
         Promise.all([MoviesApi.getMovies(), Api.getSavedMovies()])
         .then(([movies, savedMovies])=>{
-            // фильтруем массив полученных фильмов, добавляя свойства наличия в сохраненных
-            const regEx = new RegExp(searchText,'i')
-            const filtered = movies.filter((item)=>{
-                if (regEx.test(item.nameRU) && item.duration<=(shorts ? 20 : 9999999)){
-                    // ищем в сохраненных и добавляем свойство savedMovieId если фильм найден  
-                    const sm = savedMovies.find(({movieId})=>movieId===item.id);
-                    item.savedMovieId=sm ? sm._id : null;
-                    item.imageLink=MoviesApi.baseUrl() + '/' + item.image.url
-                    item.thumbnailLink=MoviesApi.baseUrl() + '/' + item.image.formats.thumbnail.url;
-                    return true;
-                }
-                return false;
-            })
-            setMoviesList(filtered);
-
+            // фильтруем массив полученных фильмов
+            const filtered = filterMovies(movies, searchText, shorts);
+            // добавляем свойства наличия в сохраненных и исправляем ссылки
+            filtered.forEach(item => {
+                // ищем в сохраненных и добавляем свойство savedMovieId если фильм найден  
+                const sm = savedMovies.find(({movieId})=>movieId===item.id);
+                item.savedMovieId=sm ? sm._id : null;
+                // исправляем сcылки
+                item.imageLink=MoviesApi.baseUrl() + '/' + item.image.url
+                item.thumbnailLink=MoviesApi.baseUrl() + '/' + item.image.formats.thumbnail.url;
+            });
             setLoading(false);
+            setMoviesList(filtered);
         })
         .catch(err=>{
             setLoading(false);
             console.log(err);
         });
+    }
+
+    function savedMoviesFilterHandler(searchText, shorts) {
+        setSavedMoviesFiltered(filterMovies(savedMoviesList,searchText,shorts));
+    }
+
+    function loadSavedMovies() {
+        // устанавливаем признак загрузки данных
+        setLoading(true);
+        Api.getSavedMovies()
+        .then((res)=>{
+            // добавляем свойства для унификации с карточками фильмов
+            res.forEach(item=>{
+                // приводим элемент массива к единому виду
+                item.id=item._id
+                item.savedMovieId=item._id;
+                item.imageLink=item.image;
+                item.thumbnailLink=item.thumbnail;
+            })
+            // снимаем признак загрузки данных
+            setLoading(false);
+            setSavedMoviesFiltered(res);
+            setSavedMoviesList(res);
+        })
+        .catch(err=>{
+            // снимаем признак загрузки данных
+            setLoading(false);
+            console.log(err);
+        });
+    }    
+
+    function filterMovies(data, searchText, shorts) {
+        const regEx = new RegExp(searchText,'i')
+        return data.filter(item=>regEx.test(item.nameRU) && item.duration<=(shorts ? 40 : 9999999))
     }
 
     function handleUpdateUser(userName, email){
@@ -193,17 +224,22 @@ function App(props) {
                     <Route path='/' element={<PageWrapper/>}>
                         <Route path='/' element={<Main />} />
                         <Route path='/movies' element={
-                            <ProtectedRoute component={Movies}
-                                baseUrl={MoviesApi.baseUrl()}
+                            <ProtectedRoute key='movies' component={Movies}
+                                savedMoviesMode=''
                                 isLoading={loading} 
                                 movies={moviesList}
                                 favoriteHandler={favoriteHandler}
-                                onSearch={newSearchHandler}
+                                onSearch={moviesSearchHandler}
                             />
                         }/>
                         <Route path='/saved-movies' element={
-                            <ProtectedRoute component={SavedMovies} 
-                                // moviesAr={}
+                            <ProtectedRoute key='savedMovies' component={Movies} 
+                                savedMoviesMode='savedMovies'
+                                loadMovies={loadSavedMovies}
+                                isLoading={loading} 
+                                movies={savedMoviesFiltered}
+                                favoriteHandler={favoriteHandler}
+                                onSearch={savedMoviesFilterHandler}                            
                             />
                         } />
                     </Route>

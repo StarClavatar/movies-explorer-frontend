@@ -7,42 +7,46 @@ import findIcon from '../../../images/find.svg'
 function SearchForm(props) {
     const [searchText, setSearchText] = React.useState('');
     const [shorts, setShorts] = React.useState(false);
+    const {onSearch, savedMoviesMode}=props;
 
     React.useEffect(
         ()=>{
-            const searchParams = JSON.parse(localStorage.getItem('searchParams'));
-            if (searchParams && searchParams.searchText) {
-                setSearchText(searchParams.searchText);
-                setShorts (searchParams.shorts);
-                props.onSearch (searchParams.searchText, searchParams.shorts)
+            if (!savedMoviesMode) {
+                const searchParams = JSON.parse(localStorage.getItem('searchParams'));
+                if (searchParams && searchParams.searchText) {
+                    setSearchText(searchParams.searchText);
+                    setShorts (searchParams.shorts);
+                    onSearch (searchParams.searchText, searchParams.shorts);
+                }
             }
         },
         []
     );
 
-    function searchTextChangeHandler(e) {setSearchText(e.target.value)};
-    function shortsChangeHandler(e) {setShorts(e.target.checked)};
+    function searchTextChangeHandler(e) {setSearchText(e.target.value); if (savedMoviesMode) onSubmit(e)}
+    function shortsChangeHandler(e) {setShorts(e.target.checked)}
 
     function onSubmit(e) {
         e.preventDefault();
-        props.onSearch (searchText, shorts);
-        localStorage.setItem('searchParams', JSON.stringify({searchText, shorts}))
+        onSearch (searchText, shorts);
+        if (!savedMoviesMode) localStorage.setItem('searchParams', JSON.stringify({searchText, shorts}))
     }
-
+    const req = savedMoviesMode ? {} : {required: 'required'};
     return (
             <section className="search-form">
                 <div className='search-form__wrapper'>
                     <form className="search-form__form" onSubmit={onSubmit}>
                         <div className="search-form__film-container">
                             <img src={searchIcon} alt="Значок поиска лупа" className="search-form__film-icon" />
-                            <input className="search-form__film-input" 
+                            <input 
+                                className="search-form__film-input" 
                                 placeholder="Фильм" 
-                                required
                                 type="text" 
                                 value={searchText}
                                 onChange={searchTextChangeHandler}
                                 onInvalid={e => e.target.setCustomValidity("Введите название фильма")}
-                                onInput={e => e.target.setCustomValidity("")}
+                                onInput={e => e.target.setCustomValidity("")}                                
+                                {...req}
                             />
                             <button className="button search-form__find-button" 
                                 type="submit"
