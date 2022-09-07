@@ -1,18 +1,27 @@
 @import url(../../vendor/normalize.css);
 @import url(../../vendor/fonts/inter/inter.css);
 
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+ }
 
 .page {
   max-width: 1280px;
+  width: 100%;
   position: relative;
   padding: 0;
   font-family: 'Inter';
   font-style: normal;
   background-color: white;
-  /* display: flex; */
-  /* align-items: center; */
   flex-direction: column;
   margin: 0 auto;
+  min-height: 100%;
+  display: flex;
 }
 
 

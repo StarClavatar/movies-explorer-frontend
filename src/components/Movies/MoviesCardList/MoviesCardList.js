@@ -64,7 +64,7 @@ function useCardShowParams() {
         );
     } else if (props.movies.length===0) {
         return (
-            <div>
+            <div className='empty'>
                 Ничего не найдено.
             </div>
         );
