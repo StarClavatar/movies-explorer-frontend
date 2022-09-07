@@ -49,6 +49,8 @@
     border: none;
     background-color: #F9F9F9;
     outline: none;
+    width: 100%;
+    padding-right: 70px;
 }
 
 .search-form__film-icon {
@@ -164,6 +166,7 @@
 
     .search-form__film-input {
         width: 100%;
+        padding-right: 10px;
     }
 
 

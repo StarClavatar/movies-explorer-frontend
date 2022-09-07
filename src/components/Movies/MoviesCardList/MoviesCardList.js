@@ -64,7 +64,15 @@ function MoviesCardList(props) {
             </div>
         );
     } else if (props.movies.length===0) {
+<<<<<<< HEAD
         return (<div>Ничего не найдено.</div>);
+=======
+        return (
+            <div className='empty'>
+                Ничего не найдено.
+            </div>
+        );
+>>>>>>> 0ebfed9f01526bd3023447ebf5c8e8b113ab9849
     } else {
         if (props.savedMoviesMode && cardsToShow!==props.movies.length) setCardsToShow(props.movies.length);
         return (

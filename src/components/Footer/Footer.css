@@ -4,6 +4,11 @@
   max-width: 1280px;
   width: 100%;
   box-sizing: border-box;
+  margin-top: auto;
+  /* position: absolute;
+  bottom:0;
+  left: 0%;
+  right: 0; */
 }
 
 .footer__title {
