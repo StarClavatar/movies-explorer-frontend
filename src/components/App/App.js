@@ -20,6 +20,7 @@ import Api from '../../utils/MainApi';
 import MoviesApi from '../../utils/MoviesApi';
 import * as Auth from '../../utils/Auth';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import Navigation from "../Navigation/Navigation";
 
 
 function App(props) {
@@ -93,10 +94,6 @@ function App(props) {
         });
     }
 
-    function savedMoviesFilterHandler(searchText, shorts) {
-        setSavedMoviesFiltered(filterMovies(savedMoviesList,searchText,shorts));
-    }
-
     function loadSavedMovies() {
         // устанавливаем признак загрузки данных
         setLoading(true);
@@ -121,31 +118,18 @@ function App(props) {
             console.log(err);
         });
     }    
+    
+    function savedMoviesFilterHandler(searchText, shorts) {
+        setSavedMoviesFiltered(filterMovies(savedMoviesList,searchText,shorts));
+    }
 
     function filterMovies(data, searchText, shorts) {
         const regEx = new RegExp(searchText,'i')
         return data.filter(item=>regEx.test(item.nameRU) && item.duration<=(shorts ? 40 : 9999999))
     }
 
-    function handleUpdateUser(userName, email){
-        Api.patchProfile(email, userName)
-        .then ((res)=>{
-            setCurrentUser(res);
-            closeAllPopups();
-        })
-        .catch(err=>{
-            console.log(err)
-            if (err.status===409) {
-                handleInfoTolltipOpen('Указанный email уже занят. \n Попробуйте еще раз', false);
-            } else if (err.message==='Failed to fetch') {
-                handleInfoTolltipOpen('Проверьте соединение с интернетом. \n Попробуйте еще раз', false);
-            } else {
-                handleInfoTolltipOpen('Что-то пошло. \n Попробуйте еще раз', false);
-            }
-    })
-    }
-
     function favoriteHandler(movie) {
+        // приводим карточку фильма к виду, пригодному для сохранения
         const mv = {
             country: movie.country ? movie.country : '  ',
             director: movie.director,
@@ -174,6 +158,17 @@ function App(props) {
         })
 
     } 
+
+    function removeSavedMovieHandler(movie) {
+        Api.deleteMovie(movie._id)
+        .then(res=>{
+            if (savedMoviesList && savedMoviesList.length>0) 
+                setSavedMoviesList(savedMoviesList.filter(item=>item._id!==movie._id));
+            if (savedMoviesFiltered && savedMoviesFiltered.length>0)
+                setSavedMoviesFiltered(savedMoviesFiltered.filter(item=>item._id!==movie._id));
+        })
+        .catch(err=>console.log(err))
+    }
 
     function handleRegister (name, email, password) {
         Auth.register(name, email, password)
@@ -217,6 +212,24 @@ function App(props) {
         navigate('/');
     }
 
+    function handleUpdateUser(userName, email){
+        Api.patchProfile(email, userName)
+        .then ((res)=>{
+            setCurrentUser(res);
+            closeAllPopups();
+        })
+        .catch(err=>{
+            console.log(err)
+            if (err.status===409) {
+                handleInfoTolltipOpen('Указанный email уже занят. \n Попробуйте еще раз', false);
+            } else if (err.message==='Failed to fetch') {
+                handleInfoTolltipOpen('Проверьте соединение с интернетом. \n Попробуйте еще раз', false);
+            } else {
+                handleInfoTolltipOpen('Что-то пошло. \n Попробуйте еще раз', false);
+            }
+    })
+    }
+
     return (
         <CurrentUserContext.Provider value={currentUser}>
             <div className='page'>
@@ -238,7 +251,7 @@ function App(props) {
                                 loadMovies={loadSavedMovies}
                                 isLoading={loading} 
                                 movies={savedMoviesFiltered}
-                                favoriteHandler={favoriteHandler}
+                                favoriteHandler={removeSavedMovieHandler}
                                 onSearch={savedMoviesFilterHandler}                            
                             />
                         } />
@@ -252,6 +265,7 @@ function App(props) {
                     <Route path='/signin' element={<LogIn onAuthorise={handleAuthorize}/>} />
                     <Route path='/signup' element={<Register onRegister={handleRegister}/>} />
                 </Routes>
+                <Navigation />
                 <InfoToolTip isOpen={isInfoTooltipOpen} tooltipMessage={tooltipMessage} tooltipIsOk={tooltipIsOk} onClose={closeAllPopups}/>
             </div>
         </CurrentUserContext.Provider>

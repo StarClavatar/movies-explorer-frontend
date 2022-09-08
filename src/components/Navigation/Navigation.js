@@ -4,7 +4,6 @@ import closeButton from '../../images/close.svg'
 
 function Navigation(props) {
     return (
-    <>
         <div className='menu'>
             <div className='navigation'>
             <Link to="/" className="link navigation__link">Главная</Link>
@@ -14,7 +13,6 @@ function Navigation(props) {
             </div>
             <button className='button navigation__close-button' style={{backgroundImage: `url(${closeButton})`}}></button>
         </div>
-    </>
     );    
 }
 
