@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 function PageWrapper(props) {
     return (
         <>
-            <Header email={props.email}/>
+            <Header email={props.email} handleNavigationOpen={props.handleNavigationOpen}/>
             <Outlet />
             <Footer />
         </>    

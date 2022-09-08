@@ -18,7 +18,7 @@ function Header(props) {
                     <Link to="/saved-movies" className="link link_saved-films link_visibility">Сохранённые фильмы</Link>
                 </div>
                 <Link to="/profile" className="link link_account link_visibility">Аккаунт</Link>
-                <button className='button menu__button' style={{backgroundImage: `url(${menuButton})`}}></button>
+                <button className='button menu__button' style={{backgroundImage: `url(${menuButton})`}} onClick={props.handleNavigationOpen}></button>
             </header>
         );
     } else {

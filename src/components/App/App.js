@@ -27,6 +27,7 @@ function App(props) {
     let navigate = useNavigate();
 
     const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(false);
+    const [isNavigationOpen, setIsNavigationOpen] = React.useState(false);
     const [currentUser, setCurrentUser] = React.useState(null);
     const [moviesList, setMoviesList] = React.useState(undefined);
     const [savedMoviesList, setSavedMoviesList] = React.useState(undefined);
@@ -41,6 +42,8 @@ function App(props) {
         setIsInfoTooltipOpen(true); 
     };
 
+    const handleNavigationOpen = ()=>setIsNavigationOpen(true);
+    
     React.useEffect( 
         ()=>{
             const tkn = localStorage.getItem('token');
@@ -67,6 +70,7 @@ function App(props) {
 
     const closeAllPopups = () => {
         setIsInfoTooltipOpen(false);
+        setIsNavigationOpen(false);
     }
 
     function moviesSearchHandler(searchText, shorts) {
@@ -131,7 +135,8 @@ function App(props) {
     function favoriteHandler(movie) {
         // приводим карточку фильма к виду, пригодному для сохранения
         const mv = {
-            country: movie.country ? movie.country : '  ',
+            // country: movie.country ? movie.country : '  ',
+            country: movie.country,
             director: movie.director,
             duration: movie.duration,
             year: movie.year,
@@ -176,6 +181,7 @@ function App(props) {
             let msg;
             let isAuthed=false;
             if (res.code===200) {
+                console.log(res);
                 msg = 'Вы успешно \n зарегистрировались!';
                 isAuthed = true;
             } else if (res.code===409) {
@@ -194,7 +200,11 @@ function App(props) {
             const {token, user} = res;
             if (token){
                 localStorage.setItem('token',token);
+                // загружаем токен для запросов API
+                Api.loadToken();
+                // устанавливаем активного пользователя
                 setCurrentUser(user);
+                // переходим на страницу после логина
                 navigate('/');
             } else {
                 handleInfoTolltipOpen('Неправильный \n логин или пароль', false);
@@ -234,7 +244,7 @@ function App(props) {
         <CurrentUserContext.Provider value={currentUser}>
             <div className='page'>
                 <Routes>
-                    <Route path='/' element={<PageWrapper/>}>
+                    <Route path='/' element={<PageWrapper handleNavigationOpen={handleNavigationOpen}/>}>
                         <Route path='/' element={<Main />} />
                         <Route path='/movies' element={
                             <ProtectedRoute key='movies' component={Movies}
@@ -265,7 +275,7 @@ function App(props) {
                     <Route path='/signin' element={<LogIn onAuthorise={handleAuthorize}/>} />
                     <Route path='/signup' element={<Register onRegister={handleRegister}/>} />
                 </Routes>
-                <Navigation />
+                <Navigation opened={isNavigationOpen} onClose={closeAllPopups}/>
                 <InfoToolTip isOpen={isInfoTooltipOpen} tooltipMessage={tooltipMessage} tooltipIsOk={tooltipIsOk} onClose={closeAllPopups}/>
             </div>
         </CurrentUserContext.Provider>

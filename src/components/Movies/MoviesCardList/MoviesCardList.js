@@ -12,6 +12,7 @@ function useCardShowParams() {
         if (windowWidth>=1 && windowWidth<=480) {return {total: 5, step: 2}}
     }
     const [cardsShowParams, setCardsShowParams] = React.useState(getCardsShowParams(window.innerWidth));
+    
     React.useEffect(
         () => {
             const updateCardsShowParams = () => {
