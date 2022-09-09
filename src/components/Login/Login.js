@@ -22,10 +22,10 @@ function Login(props) {
                 <h1 className="entrance-form__header">Рады видеть!</h1>
                 <form className="form" onSubmit={handleAuthorize}>
                     <span className="form__input-title">E-mail</span>
-                    <input className="form__input" type="email" required placeholder="Email" onChange={handleEmailChange}/>
+                    <input className="form__input" type="email" id='email' name='e-mail' required placeholder="Email" onChange={handleEmailChange}/>
                     <span className="form__input-title">Пароль</span>
-                    <input className="form__input" type="password" required placeholder="Пароль" onChange={handlePasswordChange}/>
-                    <span className="error-span">Что-то пошло не так§..</span>
+                    <input className="form__input" type="password" id='password' name='password' required placeholder="Пароль" onChange={handlePasswordChange}/>
+                    <span className="error-span">Что-то пошло не так...</span>
                     <button className="form__button" type="submit">Войти</button>
                 </form>
                 <span className="is-registered">
