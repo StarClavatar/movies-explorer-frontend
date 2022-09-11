@@ -61,9 +61,11 @@ function SearchForm(props) {
                             />
                             <p className="form-filter__subsription">Короткометражки</p>
                         </div>
+                        <span className='search-error'>чёто не так! Не годится!</span>
                     </form>
                 </div>
         </section>
+        
     );    
 }
 

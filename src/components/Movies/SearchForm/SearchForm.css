@@ -3,6 +3,7 @@
     margin: 70px 0;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .search-form__wrapper {
@@ -32,6 +33,10 @@
     min-height: 72px;
     padding: 0 30px;
     box-sizing: border-box;
+}
+
+.search-form__form_invalid-input {
+    border: 1px solid red;
 }
 
 .search-form__film-container {
@@ -115,6 +120,18 @@
     line-height: 18px;
 }
 
+.search-error {
+    color: red;
+    position: absolute;
+    left: 30px;
+    bottom: -25px;
+    visibility: hidden;
+}
+
+.search-error_visible {
+    visibility: visible;
+}
+
 @media screen and (max-width: 768px) {
     .search-form {
         margin: 80px 0 64px;
@@ -178,5 +195,4 @@
         box-sizing: border-box;
         padding-right: 60px;
     }
-
 }

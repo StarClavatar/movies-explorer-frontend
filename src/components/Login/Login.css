@@ -66,7 +66,7 @@
 }
 
 .error-span {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     bottom: -20px;
     font-weight: 400;
@@ -74,6 +74,7 @@
     line-height: 12px;
     color: #EE3465;
     visibility: hidden;
+    transform: translateY(-0px);
 }
 
 .error-span_active {
@@ -94,6 +95,16 @@
     text-align: center;
     color: #FFFFFF;
     margin: 221px 0 16px 0;
+    transition: 0.3s;
+}
+
+.form__button:hover {
+    opacity: 0.4;
+}
+
+.form__button:disabled {
+    background-color: grey;
+    opacity: 0.4;
 }
 
 .is-registered {

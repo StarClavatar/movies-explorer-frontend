@@ -15,6 +15,7 @@ import LogIn from '../Login/Login';
 import Register from '../Register/Register';
 import InfoToolTip from '../InfoTooltip/InfoTooltip';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import LoadingError from '../LoadingError/LoadingError'
 
 import Api from '../../utils/MainApi';
 import * as Auth from '../../utils/Auth';
