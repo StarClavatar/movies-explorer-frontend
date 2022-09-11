@@ -28,7 +28,6 @@ function Register(props) {
                 <h1 className="entrance-form__header">Добро пожаловать!</h1>
                 <form className="form" onSubmit={handleSubmit}>
                     <span className="form__input-title">Имя</span>
-<<<<<<< HEAD
                     <input name="user" type="text" className="form__input" onChange={handleChange} value={values.user} /> 
                     <span className="form__input-title">E-mail</span>
                     <input name="email" type="email" className="form__input" onChange={handleChange} value={values.email} />
@@ -36,15 +35,6 @@ function Register(props) {
                     <input name="password" type="password" className="form__input" onChange={handleChange} value={values.password} />
                     <span className="error-span">Что-то пошло не так...</span> 
                     <button className="form__button" type="submit" {...!isValid ? {disabled: 'disabled'} : {}} >Зарегистрироваться</button>
-=======
-                    <input type="text" className="form__input" id='email' name='e-mail' onChange={handleNameChange} value={name} /> 
-                        <span className="form__input-title">E-mail</span>
-                        <input type="email" className="form__input" id='password' name='password' onChange={handleEmailChange} value={email} />
-                        <span className="form__input-title">Пароль</span>
-                        <input type="password" className="form__input" onChange={handlePasswordChange} value={password} />
-                        <span className="error-span">Что-то пошло не так...</span> 
-                    <button className="form__button" type="submit">Зарегистрироваться</button>
->>>>>>> 2a40080c7055d8593f0abc71251dd221e564f9eb
                 </form>
                 <span className="is-registered">
                     Уже зарегистрированы? 

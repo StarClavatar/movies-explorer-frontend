@@ -21,7 +21,7 @@ import Api from '../../utils/MainApi';
 import * as Auth from '../../utils/Auth';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import Navigation from "../Navigation/Navigation";
-import useMoviesLogic from '../../utils/FilteringLogicHooks';
+import { useMoviesLogic } from '../../utils/FilteringLogicHooks';
 
 
 function App(props) {
