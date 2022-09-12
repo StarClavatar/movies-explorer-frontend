@@ -29,8 +29,11 @@ function Register(props) {
                 <form className="form" onSubmit={handleSubmit}>
                     <span className="form__input-title">Имя</span>
                     <input name="user" type="text" className="form__input" onChange={handleChange} value={values.user} /> 
+                    <span className="error-span">Что-то пошло не так...</span> 
+
                     <span className="form__input-title">E-mail</span>
                     <input name="email" type="email" className="form__input" onChange={handleChange} value={values.email} />
+                    <span className="error-span">Что-то пошло не так...</span> 
                     <span className="form__input-title">Пароль</span>
                     <input name="password" type="password" className="form__input" onChange={handleChange} value={values.password} />
                     <span className="error-span">Что-то пошло не так...</span> 
