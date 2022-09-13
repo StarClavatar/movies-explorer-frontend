@@ -63,6 +63,7 @@
 
 .form__input_invalid {
     color: #EE3465;
+    border-color: #EE3465;
 }
 
 .error-span {
@@ -70,7 +71,7 @@
     font-size: 10px;
     line-height: 12px;
     color: #EE3465;
-    visibility: visible;
+    visibility: none;
     margin: 6px 0 6px 0;
 }
 

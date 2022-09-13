@@ -24,8 +24,6 @@ import { useMoviesLogic } from '../../utils/FilteringLogicHooks';
 
 import Api from '../../utils/MainApi';
 
-
-
 function App(props) {
     const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(false);
     const [isNavigationOpen, setIsNavigationOpen] = React.useState(false);

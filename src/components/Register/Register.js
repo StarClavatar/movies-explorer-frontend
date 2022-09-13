@@ -5,14 +5,6 @@ import React from 'react';
 import { useFormWithValidation } from '../../utils/FormHooks';
 
 function Register(props) {
-    // const [name, setName] = React.useState('');
-    // const [email, setEmail] = React.useState('');
-    // const [password, setPassword] = React.useState('');
-
-    // function handleNameChange(e) {setName(e.target.value)};
-    // function handleEmailChange(e) {setEmail(e.target.value)};
-    // function handlePasswordChange(e) {setPassword(e.target.value)};
-
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation(); 
 
     function handleSubmit(e) {
@@ -27,16 +19,39 @@ function Register(props) {
                 <img className="entrance-form-logo" src={logo} alt="логотип"/>
                 <h1 className="entrance-form__header">Добро пожаловать!</h1>
                 <form className="form" onSubmit={handleSubmit}>
+                    {/* имя пользователя */}
                     <span className="form__input-title">Имя</span>
-                    <input name="user" type="text" className="form__input" onChange={handleChange} value={values.user} /> 
-                    <span className="error-span">Что-то пошло не так...</span> 
-
+                    <input 
+                        name="user" 
+                        type="text" 
+                        className={`form__input${errors.user ? ' form__input_invalid' : ''}`} 
+                        required 
+                        onChange={handleChange} 
+                        value={values.user ? values.user : ''} 
+                    /> 
+                    <span className={`error-span${errors.user ? ' error-span_active' : ''}`} >{errors.user}</span> 
+                    {/* email */}
                     <span className="form__input-title">E-mail</span>
-                    <input name="email" type="email" className="form__input" onChange={handleChange} value={values.email} />
-                    <span className="error-span">Что-то пошло не так...</span> 
+                    <input 
+                        name="email" 
+                        type="email" 
+                        className={`form__input${errors.email ? ' form__input_invalid' : ''}`}
+                        required 
+                        onChange={handleChange} 
+                        value={values.email ? values.email : ''} 
+                    />
+                    <span className={`error-span${errors.email ? ' error-span_active' : ''}`} >{errors.email}</span> 
+                    {/* пароль */}
                     <span className="form__input-title">Пароль</span>
-                    <input name="password" type="password" className="form__input" onChange={handleChange} value={values.password} />
-                    <span className="error-span">Что-то пошло не так...</span> 
+                    <input 
+                        name="password" 
+                        type="password" 
+                        className={`form__input${errors.password ? ' form__input_invalid' : ''}`} 
+                        required 
+                        onChange={handleChange} 
+                        value={values.password ? values.password : ''} />
+                    <span className={`error-span${errors.email ? ' error-span_active' : ''}`}>{errors.password}</span> 
+                    {/* submit */}
                     <button className="form__button" type="submit" {...!isValid ? {disabled: 'disabled'} : {}} >Зарегистрироваться</button>
                 </form>
                 <span className="is-registered">
