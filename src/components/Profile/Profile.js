@@ -39,6 +39,7 @@ function Profile(props) {
                             value={name} 
                             onChange={handleNameChange}
                         />
+                        <span className='profile-error-span'>Что-то пошло не так...</span>
                     </div>
                     <div className="profile-form__form-wrapper">
                         <span className="profile-form-input__title">E-mail</span>
@@ -49,6 +50,8 @@ function Profile(props) {
                             value={email} 
                             onChange={handleEmailChange} 
                         />
+                        <span className='profile-error-span'>Что-то пошло не так...</span>
+
                     </div>
                     <div className='button-container'>
                     <button className="form-button form-button_edit" type="submit">Редактировать</button>

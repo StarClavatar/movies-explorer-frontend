@@ -23,6 +23,7 @@ function Login(props) {
                 <form className="form" onSubmit={handleAuthorize}>
                     <span className="form__input-title">E-mail</span>
                     <input className="form__input" type="email" id='email' name='e-mail' required placeholder="Email" onChange={handleEmailChange}/>
+                    <span className="error-span">Что-то пошло не так...</span> 
                     <span className="form__input-title">Пароль</span>
                     <input className="form__input" type="password" id='password' name='password' required placeholder="Пароль" onChange={handlePasswordChange}/>
                     <span className="error-span">Что-то пошло не так...</span>
