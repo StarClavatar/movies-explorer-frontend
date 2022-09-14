@@ -2,17 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 import logo from '../../images/logo.svg';
+import { useFormWithValidation } from '../../utils/FormHooks';
 
 function Login(props) {
-    const [email, setEmail] = React.useState ('');
-    const [password, setPassword] = React.useState ('');
+    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-    function handleEmailChange(e) {setEmail(e.target.value)};
-    function handlePasswordChange(e) {setPassword(e.target.value)};
+    // const [email, setEmail] = React.useState ('');
+    // const [password, setPassword] = React.useState ('');
+
+    // function handleEmailChange(e) {setEmail(e.target.value)};
+    // function handlePasswordChange(e) {setPassword(e.target.value)};
 
     function handleAuthorize(e){
         e.preventDefault();
-        props.onAuthorise(email, password);
+        props.onAuthorise(values.email, values.password);
     }
 
     return (
@@ -22,12 +25,32 @@ function Login(props) {
                 <h1 className="entrance-form__header">Рады видеть!</h1>
                 <form className="form" onSubmit={handleAuthorize}>
                     <span className="form__input-title">E-mail</span>
-                    <input className="form__input" type="email" id='email' name='e-mail' required placeholder="Email" onChange={handleEmailChange}/>
-                    <span className="error-span">Что-то пошло не так...</span> 
+                    <input className="form__input" 
+                        name='email' 
+                        placeholder="E-mail" 
+                        type="email" 
+                        required 
+                        onChange={handleChange}
+                        value={values.email ? values.email : ''}
+                    />
+                    <span className={`error-span${errors.email ? ' error-span_active' : ''}`} >
+                        {errors.email ? errors.email : ''}
+                    </span> 
                     <span className="form__input-title">Пароль</span>
-                    <input className="form__input" type="password" id='password' name='password' required placeholder="Пароль" onChange={handlePasswordChange}/>
-                    <span className="error-span">Что-то пошло не так...</span>
-                    <button className="form__button" type="submit">Войти</button>
+                    <input className="form__input" 
+                        name='password' 
+                        placeholder="Пароль" 
+                        type="password" 
+                        required 
+                        onChange={handleChange}
+                        value={values.password ? values.password : ''}
+                    />
+                    <span className={`error-span${errors.email ? ' error-span_active' : ''}`} >
+                        {errors.password ? errors.password : ''}
+                    </span>
+                    <button className="form__button" type="submit" {...!isValid ? {disabled: 'disabled'} : {}} >
+                        Войти
+                    </button>
                 </form>
                 <span className="is-registered">
                     Ещё не зарегистрированы?
