@@ -8,7 +8,7 @@ import './Profile.css';
 function Profile(props) {
     const currentUser = React.useContext(CurrentUserContext);
     
-    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({user: currentUser.name, email: currentUser.email});
+    const { values, handleChange, errors, isValid } = useFormWithValidation({user: currentUser.name, email: currentUser.email});
     
     function handleSubmit(e){
         e.preventDefault();

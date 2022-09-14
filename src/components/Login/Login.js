@@ -5,7 +5,7 @@ import logo from '../../images/logo.svg';
 import { useFormWithValidation } from '../../utils/FormHooks';
 
 function Login(props) {
-    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+    const { values, handleChange, errors, isValid } = useFormWithValidation();
 
     // const [email, setEmail] = React.useState ('');
     // const [password, setPassword] = React.useState ('');
