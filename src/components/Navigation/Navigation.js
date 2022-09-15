@@ -4,7 +4,7 @@ import closeButton from '../../images/close.svg';
 
 function Navigation(props) {
     return (
-        <div className={`menu${props.opened ? ' menu_opened' : ''}`}>
+        <div className={`menu${props.isOpen ? ' menu_opened' : ''}`}>
             <div className='navigation'>
                 <Link to="/" className="link navigation__link" onClick={props.onClose}>Главная</Link>
                 <Link to="/movies" className="link navigation__link" onClick={props.onClose}>Фильмы</Link>

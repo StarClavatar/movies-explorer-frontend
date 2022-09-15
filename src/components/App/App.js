@@ -103,7 +103,7 @@ function App(props) {
                     <Route path='/signup' element={<Register onRegister={handleRegister}/>} />
                     <Route path='*' element={<LoadingError />} />
                 </Routes>
-                <Navigation opened={isNavigationOpen} onClose={closeAllPopups}/>
+                <Navigation isOpen={isNavigationOpen} onClose={closeAllPopups}/>
                 <InfoToolTip isOpen={isInfoTooltipOpen} tooltipMessage={tooltipMessage} tooltipIsOk={tooltipIsOk} onClose={closeAllPopups}/>
             </div>
         </CurrentUserContext.Provider>
