@@ -26,6 +26,13 @@ function Register(props) {
                         type="text" 
                         className={`form__input${errors.user ? ' form__input_invalid' : ''}`} 
                         required 
+                        autoComplete="off"
+                        pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]*$"
+                        onInput={e => {
+                            e.target.setCustomValidity("");
+                            if (!e.target.validity.valid) 
+                            e.target.setCustomValidity("Только латиница, кирилица, пробел или дефис")}
+                        }  
                         onChange={handleChange} 
                         value={values.user ? values.user : ''} 
                     /> 
@@ -48,6 +55,7 @@ function Register(props) {
                         type="password" 
                         className={`form__input${errors.password ? ' form__input_invalid' : ''}`} 
                         required 
+                        autoComplete="off"
                         onChange={handleChange} 
                         value={values.password ? values.password : ''} />
                     <span className={`error-span${errors.email ? ' error-span_active' : ''}`}>{errors.password}</span> 

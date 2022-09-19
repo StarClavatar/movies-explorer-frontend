@@ -26,9 +26,15 @@ function Profile(props) {
                             name="user"
                             required 
                             type="text" 
-                            placeholder="Введите имя" 
-                            value={values.user ? values.user : ''} 
+                            placeholder="Введите имя"
+                            pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]*$"
+                            onInput={e => {
+                                e.target.setCustomValidity("");
+                                if (!e.target.validity.valid) 
+                                e.target.setCustomValidity("Только латиница, кирилица, пробел или дефис")}
+                            }  
                             onChange={handleChange}
+                            value={values.user ? values.user : ''} 
                         />
                         <span className={`profile-error-span${errors.user ? ' error-span_active' : ''}`} >{errors.user}</span>
                     </div>

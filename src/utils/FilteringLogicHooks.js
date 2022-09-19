@@ -29,6 +29,7 @@ export function useMoviesLogic(Api) {
         .catch(err=>{
             setLoading(false);
             console.log(err);
+            setMoviesList(null);
         });
     }
 
@@ -110,9 +111,10 @@ export function useMoviesLogic(Api) {
     }
 
     function clearAllMovies() {
-        setSavedMoviesFiltered({});
-        setSavedMoviesList({});
-        setMoviesList({});
+        setSavedMoviesFiltered(undefined);
+        setSavedMoviesList(undefined);
+        setMoviesList(undefined);
+        localStorage.removeItem('searchParams');
     }
 
     return {

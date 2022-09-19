@@ -37,9 +37,11 @@ export function useAuthRegister(Api, handleInfoTolltipOpen, clearAllMovies) {
             let msg;
             let isAuthed=false;
             if (res.code===200) {
-                console.log(res);
-                msg = 'Вы успешно \n зарегистрировались!';
-                isAuthed = true;
+                // console.log(res);
+                // msg = 'Вы успешно \n зарегистрировались!';
+                // isAuthed = true;
+                handleAuthorize (email, password);
+                return;
             } else if (res.code===409) {
                 msg = res.body.message;
             } else {
@@ -61,7 +63,7 @@ export function useAuthRegister(Api, handleInfoTolltipOpen, clearAllMovies) {
                 // устанавливаем активного пользователя
                 setCurrentUser(user);
                 // переходим на страницу после логина
-                navigate('/');
+                navigate('/movies');
             } else {
                 handleInfoTolltipOpen('Неправильный \n логин или пароль', false);
             }

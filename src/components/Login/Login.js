@@ -29,7 +29,7 @@ function Login(props) {
                         name='email' 
                         placeholder="E-mail" 
                         type="email" 
-                        autocomplete="off"
+                        autoComplete="off"
                         required 
                         onChange={handleChange}
                         value={values.email ? values.email : ''}
@@ -42,7 +42,7 @@ function Login(props) {
                         name='password' 
                         placeholder="Пароль" 
                         type="password" 
-                        autocomplete="off"
+                        autoComplete="off"
                         required 
                         onChange={handleChange}
                         value={values.password ? values.password : ''}
