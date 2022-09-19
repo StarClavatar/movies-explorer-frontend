@@ -19,4 +19,4 @@
 Собирает проект для продуктива и копирует его в папку `build`.\
 
 ### Ссылка на pull request основной функциональности, разработанной в ветке level-3 в ветку main по сслке ниже:
-https://github.com/tupokaban/movies-explorer-frontend/pull/4 
+[https://github.com/tupokaban/movies-explorer-frontend/pull/4](https://github.com/tupokaban/movies-explorer-frontend/pull/4)
