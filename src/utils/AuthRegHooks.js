@@ -84,6 +84,7 @@ export function useAuthRegister(Api, handleInfoTolltipOpen, clearAllMovies) {
         Api.patchProfile(email, userName)
         .then ((res)=>{
             setCurrentUser(res);
+            handleInfoTolltipOpen('Изменения в профиле успешно сохранены.', true);
         })
         .catch(err=>{
             console.log(err)

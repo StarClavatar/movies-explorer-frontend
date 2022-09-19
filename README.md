@@ -18,4 +18,8 @@
 
 Собирает проект для продуктива и копирует его в папку `build`.\
 
+
+[Ссылка на рабочий проект](https://movies.clavatar.nomoreparties.sbs)
+
+
 [Ссылка на pull request основной функциональности, разработанной в ветке level-3 в ветку main](https://github.com/tupokaban/movies-explorer-frontend/pull/4)
