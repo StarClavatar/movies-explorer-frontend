@@ -3,7 +3,7 @@ import './AboutMe.css';
 
 function AboutMe(props) {
     return (
-        <section className="section student">
+        <section ref={props.aboutMeRef} className="section student">
             <h2 className="section-title student__title" id="student">Студент</h2>
             <div className="student-wrapper">
                 <img className="student__photo" src={myPhoto} alt="Фотография студента" />
