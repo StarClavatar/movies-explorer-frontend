@@ -16,7 +16,9 @@ function Register(props) {
     return (
         <section className="register">
             <div className="entrance-form">
-                <img className="entrance-form-logo" src={logo} alt="логотип"/>
+                <Link to="/">
+                    <img className="entrance-form-logo" src={logo} alt="логотип"/>
+                </Link>
                 <h1 className="entrance-form__header">Добро пожаловать!</h1>
                 <form className="form" onSubmit={handleSubmit}>
                     {/* имя пользователя */}

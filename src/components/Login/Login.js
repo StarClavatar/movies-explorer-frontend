@@ -21,7 +21,9 @@ function Login(props) {
     return (
         <section className="login">
             <div className="entrance-form">
-                <img className="entrance-form-logo" src={logo} alt="логотип"/>
+                <Link to="/">
+                    <img className="entrance-form-logo" src={logo} alt="логотип"/>
+                </Link>
                 <h1 className="entrance-form__header">Рады видеть!</h1>
                 <form className="form" onSubmit={handleAuthorize}>
                     <span className="form__input-title">E-mail</span>
