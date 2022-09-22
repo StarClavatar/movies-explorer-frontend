@@ -4,9 +4,11 @@ import React from 'react';
 import {
   Routes,
   Route,
+  Navigate
 } from 'react-router-dom';
 
 import PageWrapper from '../PageWrapper/PageWrapper';
+import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
@@ -55,6 +57,7 @@ function App(props) {
     // регистрация, авторизация
     const {
         currentUser,
+        loadingToken,
         handleRegister,
         handleAuthorize,
         handleSignOut,
@@ -67,46 +70,58 @@ function App(props) {
         setIsNavigationOpen(false);
     }
 
-    return (
-        <CurrentUserContext.Provider value={currentUser}>
-            <div className='page'>
-                <Routes>
-                    <Route path='/' element={<PageWrapper handleNavigationOpen={handleNavigationOpen}/>}>
-                        <Route path='/' element={<Main />} />
-                        <Route path='/movies' element={
-                            <ProtectedRoute key='movies' component={Movies}
-                                savedMoviesMode=''
-                                isLoading={loading} 
-                                movies={moviesList}
-                                favoriteHandler={favoriteHandler}
-                                onSearch={moviesSearchHandler}
-                            />
+    if (!loadingToken) {
+        return (
+            <CurrentUserContext.Provider value={currentUser}>
+                <div className='page'>
+                    <Routes>
+                        <Route path='/' element={<PageWrapper handleNavigationOpen={handleNavigationOpen}/>}>
+                            <Route path='/' element={<Main />} />
+                            <Route path='/movies' element={
+                                <ProtectedRoute key='movies' component={Movies}
+                                    savedMoviesMode=''
+                                    isLoading={loading} 
+                                    movies={moviesList}
+                                    favoriteHandler={favoriteHandler}
+                                    onSearch={moviesSearchHandler}
+                                />
+                            }/>
+                            <Route path='/saved-movies' element={
+                                <ProtectedRoute key='savedMovies' component={Movies} 
+                                    savedMoviesMode='savedMovies'
+                                    loadMovies={loadSavedMovies}
+                                    isLoading={loading} 
+                                    movies={savedMoviesFiltered}
+                                    favoriteHandler={removeSavedMovieHandler}
+                                    onSearch={savedMoviesFilterHandler}                            
+                                />
+                            } />
+                        </Route>
+                        <Route path='/profile' element={
+                            <>
+                                <Header email={props.email} handleNavigationOpen={handleNavigationOpen}/>
+                                <ProtectedRoute component={Profile} 
+                                    onEditProfile={handleUpdateUser}
+                                    onSignOut={handleSignOut}
+                                />
+                            </>
                         }/>
-                        <Route path='/saved-movies' element={
-                            <ProtectedRoute key='savedMovies' component={Movies} 
-                                savedMoviesMode='savedMovies'
-                                loadMovies={loadSavedMovies}
-                                isLoading={loading} 
-                                movies={savedMoviesFiltered}
-                                favoriteHandler={removeSavedMovieHandler}
-                                onSearch={savedMoviesFilterHandler}                            
-                            />
+                        <Route path='/signin' element={
+                            !currentUser ? <LogIn onAuthorise={handleAuthorize}/> : <Navigate to="/" replace={true}/>
                         } />
-                    </Route>
-                    <Route path='/profile' element={
-                        <ProtectedRoute component={Profile} 
-                            onEditProfile={handleUpdateUser}
-                            onSignOut={handleSignOut}
-                        />
-                    } />
-                    <Route path='/signin' element={<LogIn onAuthorise={handleAuthorize}/>} />
-                    <Route path='/signup' element={<Register onRegister={handleRegister}/>} />
-                    <Route path='*' element={<LoadingError />} />
-                </Routes>
-                <Navigation isOpen={isNavigationOpen} onClose={closeAllPopups}/>
-                <InfoToolTip isOpen={isInfoTooltipOpen} tooltipMessage={tooltipMessage} tooltipIsOk={tooltipIsOk} onClose={closeAllPopups}/>
-            </div>
-        </CurrentUserContext.Provider>
-    );
+                        <Route path='/signup' element={
+                            !currentUser ? <Register onRegister={handleRegister}/> : <Navigate to="/" replace={true}/>
+                        } />
+                        <Route path='*' element={<LoadingError />} />
+                    </Routes>
+                    <Navigation isOpen={isNavigationOpen} onClose={closeAllPopups}/>
+                    <InfoToolTip isOpen={isInfoTooltipOpen} tooltipMessage={tooltipMessage} tooltipIsOk={tooltipIsOk} onClose={closeAllPopups}/>
+                </div>
+            </CurrentUserContext.Provider>
+        );
+    } else {
+        return (<></>)
+    }
 }
+
 export default App;

@@ -2,7 +2,7 @@ import './Techs.css';
 
 function Techs(props) {
     return (
-        <section ref={props.techsRef} className="section technologies" id="technologies">
+        <section className="section technologies" id="technologies">
             <h2 className="section-title section__title_technologies">Технологии</h2>
             <h3 className="technologies__heading">7 технологий</h3>
             <p className="technologies__subtitle">На курсе веб-разработки мы освоили технологии, которые применили в

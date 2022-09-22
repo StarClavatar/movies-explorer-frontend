@@ -2,14 +2,15 @@ import './MoviesCardList.css';
 import React from 'react';
 import Preloader from '../../Preloader/Preloader'; 
 import MovieCard from '../MoviesCard/MoviesCard';
+import { MOVIES_LIST_SHOW_PARAMS } from '../../../constants/constants';
 
 
 function useCardShowParams() {
     const getCardsShowParams = (windowWidth) => {
-        if (windowWidth>=1280) {return {total: 12, step: 3}}
-        if (windowWidth>768 && windowWidth<1280) {return {total: 8, step: 2}}
-        if (windowWidth>480 && windowWidth<768) {return {total: 5, step: 2}}
-        if (windowWidth>=1 && windowWidth<=480) {return {total: 5, step: 2}}
+        if (windowWidth>=1280) return MOVIES_LIST_SHOW_PARAMS.width1280
+        if (windowWidth>768 && windowWidth<1280) return MOVIES_LIST_SHOW_PARAMS.width768
+        if (windowWidth>480 && windowWidth<768) return MOVIES_LIST_SHOW_PARAMS.width480
+        if (windowWidth>=1 && windowWidth<=480) return MOVIES_LIST_SHOW_PARAMS.width_min
     }
     const [cardsShowParams, setCardsShowParams] = React.useState(getCardsShowParams(window.innerWidth));
     

@@ -5,24 +5,31 @@ import * as Auth from '../utils/Auth';
 export function useAuthRegister(Api, handleInfoTolltipOpen, clearAllMovies) {
     let navigate = useNavigate();
     const [currentUser, setCurrentUser] = React.useState(null);
+    const [loadingToken, setLoadingToken] = React.useState(true);
 
     // загружаем и проверяем сохраненный ранее токен, логинимся если токен действительный
     React.useEffect( 
         ()=>{
+            Api.unAuthorizedCallBack (handleSignOut);
             const tkn = localStorage.getItem('token');
             // проверяем токен пользователя
             if (tkn) {
+                // setLoadingToken(true);
                 Auth.checkToken(tkn)
                 .then((res) => {
                     if (res) { 
-                        //загружаем токен для запросов API
-                        Api.loadToken();
                         //устанавливаем текущего пользователя
                         setCurrentUser(res);
                     }
+                    setLoadingToken(false);
                 })
-                .catch(err=>console.log(err))
-            }
+                .catch(err=>{
+                    setLoadingToken(false);
+                    console.log(err);
+                    err.json()
+                    .then(res=>console.log(res))
+                })
+            } else {setLoadingToken(false);}
             //возвращаем функцию, которую вызовет реакт при завершении приложения
             return(()=>{
                 localStorage.removeItem('searchParams');
@@ -34,22 +41,21 @@ export function useAuthRegister(Api, handleInfoTolltipOpen, clearAllMovies) {
     function handleRegister (name, email, password) {
         Auth.register(name, email, password)
         .then((res) => {
-            let msg;
-            let isAuthed=false;
-            if (res.code===200) {
-                // console.log(res);
-                // msg = 'Вы успешно \n зарегистрировались!';
-                // isAuthed = true;
-                handleAuthorize (email, password);
-                return;
-            } else if (res.code===409) {
-                msg = res.body.message;
-            } else {
-                msg = 'Что-то пошло не так. \n Попробуйте еще раз'
-            }
-            handleInfoTolltipOpen(msg, isAuthed);
+            handleAuthorize (email, password);
+            return;
         })
-        .catch(err=>console.log(err));
+        .catch(res=>{
+            console.log(res);
+            if (res.status===409) {
+                res.json()
+                .then(data=>{
+                    handleInfoTolltipOpen(data.message, false);
+                })
+            } else {
+                // msg = 'Что-то пошло не так. \n Попробуйте еще раз'
+                handleInfoTolltipOpen('Что-то пошло не так. \n Попробуйте еще раз', false);
+            }
+        });
     }
     
     function handleAuthorize(email, password) {
@@ -57,25 +63,27 @@ export function useAuthRegister(Api, handleInfoTolltipOpen, clearAllMovies) {
         .then((res) => {
             const {token, user} = res;
             if (token){
+                // сохраняем токен
                 localStorage.setItem('token',token);
-                // загружаем токен для запросов API
-                Api.loadToken();
                 // устанавливаем активного пользователя
                 setCurrentUser(user);
                 // переходим на страницу после логина
                 navigate('/movies');
-            } else {
-                handleInfoTolltipOpen('Неправильный \n логин или пароль', false);
             }
         })
-        .catch(err=>{
-            handleInfoTolltipOpen('Что-то пошло не так. \n попробуйте еще раз.', false);
+        .catch(res=>{
+            if (res.status===401) {
+                handleInfoTolltipOpen('Неправильный \n логин или пароль', false);
+            } else {
+                handleInfoTolltipOpen('Что-то пошло не так. \n попробуйте еще раз.', false);
+            }
         });
     }
     
     function handleSignOut() {
         clearAllMovies();
         localStorage.removeItem('token');
+        localStorage.removeItem('searchParams');
         setCurrentUser(null);
         navigate('/');
     }
@@ -100,6 +108,7 @@ export function useAuthRegister(Api, handleInfoTolltipOpen, clearAllMovies) {
 
     return {
         currentUser,
+        loadingToken,
         handleRegister,
         handleAuthorize,
         handleSignOut,

@@ -30,6 +30,7 @@ function Login(props) {
                     <input className="form__input" 
                         name='email' 
                         placeholder="E-mail" 
+                        autoFocus
                         type="email" 
                         autoComplete="off"
                         required 

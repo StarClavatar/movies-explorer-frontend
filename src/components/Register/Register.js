@@ -3,6 +3,7 @@ import './Register.css';
 import logo from '../../images/logo.svg'
 import React from 'react';
 import { useFormWithValidation } from '../../utils/FormHooks';
+import { USER_NAME_REGEXP, EMAIL_REGEXP } from '../../constants/constants'
 
 function Register(props) {
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation(); 
@@ -28,8 +29,9 @@ function Register(props) {
                         type="text" 
                         className={`form__input${errors.user ? ' form__input_invalid' : ''}`} 
                         required 
+                        autoFocus
                         autoComplete="off"
-                        pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]*$"
+                        pattern={USER_NAME_REGEXP}
                         onInput={e => {
                             e.target.setCustomValidity("");
                             if (!e.target.validity.valid) 
@@ -43,9 +45,15 @@ function Register(props) {
                     <span className="form__input-title">E-mail</span>
                     <input 
                         name="email" 
-                        type="email" 
+                        type="text" 
                         className={`form__input${errors.email ? ' form__input_invalid' : ''}`}
                         required 
+                        pattern={EMAIL_REGEXP}
+                        onInput={e => {
+                            e.target.setCustomValidity("");
+                            if (!e.target.validity.valid) 
+                            e.target.setCustomValidity("Введите корректный адрес электронной почты")}
+                        }  
                         onChange={handleChange} 
                         value={values.email ? values.email : ''} 
                     />

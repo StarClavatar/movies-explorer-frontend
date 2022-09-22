@@ -12,7 +12,7 @@ const ProtectedRoute = ({ component: Component, ...props  }) => {
   return (
     <>
       {
-        currentUser ? <Component {...props} /> : <Navigate to="/signin" />
+        currentUser ? <Component {...props} /> : <Navigate to="/" />
       }
     </>
 )}

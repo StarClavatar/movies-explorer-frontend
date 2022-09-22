@@ -23,7 +23,7 @@ function SearchForm(props) {
         []
     );
 
-    function searchTextChangeHandler(e) {setSearchText(e.target.value); if (savedMoviesMode) search(e.target.value, shorts)}
+    function searchTextChangeHandler(e) {setSearchText(e.target.value); /* if (savedMoviesMode) */ search(e.target.value, shorts)}
     function shortsChangeHandler(e) {setShorts(e.target.checked); search(searchText, e.target.checked)}
 
     function onSubmit(e) {
@@ -46,6 +46,7 @@ function SearchForm(props) {
                         <input 
                             className="search-form__film-input" 
                             placeholder="Фильм" 
+                            autoFocus
                             type="text" 
                             value={searchText}
                             onChange={searchTextChangeHandler}
