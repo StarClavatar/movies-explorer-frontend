@@ -3,6 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin: 0 30px;
 }
 
 .profile-form__heading {
@@ -13,18 +14,26 @@
     margin-bottom: 123px;
 }
 
-.pprofile-form__form {
+.profile-form__form {
     display: flex;
     flex-direction: column;
-    width: 410px;
+    max-width: 410px;
+    width: 100%;
     justify-content: center;
 }
 
 .profile-form__form-wrapper {
+    position: relative;
     display: flex;
     border-bottom: 1px solid #E8E8E8;
     margin-bottom: 17px;
     padding-bottom: 16px;
+    width: 100%;
+    max-width: 410px;
+}
+
+.profile-form__form-wrapper:last-of-type {
+    border-bottom: none;
 }
 
 .profile-form-input__title {
@@ -44,11 +53,66 @@
     color: #000000;
     outline: none;
     width: 100%;
-
 }
 
 .form-input:last-child {
     margin-bottom: 0;
-    border-bottom: 0;
-    border-bottom: 0;
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 220px;
+}
+
+@media screen and (max-width:768px) {
+    .button-container {
+        margin-top: 210px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .button-container {
+        margin-top: 379px;
+    }
+}
+
+.form-button {
+    font-size: 12px;
+    line-height: 15px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.form-button_edit {
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.form-button_quit {
+    color: #EE3465;
+    font-weight: 500;
+}
+
+/* Классы валидации */
+
+.profile-error-span {
+    position: absolute;
+    top: 26px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #EE3465;
+    visibility: hidden;
+    margin: 6px 0 6px 0;
+}
+
+.error-span_active {
+    visibility: visible;
+}
+
+/* Классы валидации */

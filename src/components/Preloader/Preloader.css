@@ -1,0 +1,59 @@
+/* Animations */
+@keyframes bounce {
+   50% {transform: translatey(-35px);}
+  100% {transform: translatey( 20px);}
+}
+
+/* Bounce throbber */
+#dots div {
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  background-color: hsl(0, 0%, 50%);
+  animation: bounce 1s ease-in-out infinite;
+  position: absolute;
+  top: 0;
+  transform: translatey(20px);
+  padding: 0;
+}
+
+#dots div:first-of-type {
+  left: -40px;
+  animation-delay: 0.20s;
+}
+
+#dots div:nth-of-type(2) {
+  animation-delay: 0.10s;
+}
+
+#dots div:last-of-type {
+  left: 40px;
+}
+
+#preloader {
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#loading {
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: hsla(0, 0%, 0%, 0);
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+#loading > * {
+  position: relative;
+  align-self: center;
+}

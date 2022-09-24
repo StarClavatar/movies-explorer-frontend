@@ -4,6 +4,7 @@
   max-width: 1280px;
   width: 100%;
   box-sizing: border-box;
+  align-self: flex-end;
 }
 
 .footer__title {

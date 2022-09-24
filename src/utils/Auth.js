@@ -1,23 +1,22 @@
-// export const BASE_URL = 'https://auth.nomoreparties.co';
-export const BASE_URL = 'https://api.clavatar.nomoreparties.sbs';
-// export const BASE_URL = 'http://localhost:3000';
+import { BASE_URL } from '../constants/constants';
 
-export function register (email, password) {
+// проверяем результат ответа
+const _checkResponse = (res) => {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(res);
+}
+
+export function register (name, email, password) {
     return fetch(`${BASE_URL}/signup`, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({password, email})
-    })
-    .then((response) => {
-        return response.json()
-            .then (reslt=>{
-                return { 'code': response.status,'body': reslt }
-            });
-    })
-    .catch((err) => console.log(err));
+            method: 'POST',
+            headers: {   'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, password, name})}
+    )
+    .then(_checkResponse);
 };
 
 export function authorize (email, password) {
@@ -29,8 +28,7 @@ export function authorize (email, password) {
         },
         body: JSON.stringify({email, password})
     })
-    .then((response => response.json()))
-    .catch(err => console.log(err))
+    .then(_checkResponse);
 };
 
 export function checkToken (token) {
@@ -45,6 +43,5 @@ export function checkToken (token) {
             }
         }
     )
-    .then(res => res.json())
-    .catch(err => console.log(err));
+    .then(_checkResponse)
 }

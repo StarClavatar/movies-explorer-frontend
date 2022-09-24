@@ -1,11 +1,14 @@
-.login {}
+.login {
+    margin: 0 30px;
+}
 
 .entrance-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 369px;
-    margin-top: 70px;
+    width: 100%;
+    margin: 70px auto 0 auto;
 }
 
 .entrance-form-logo {
@@ -24,7 +27,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    margin: 40px 0 221px 0;
+    margin: 40px 0 0 0;
     position: relative;
 }
 
@@ -45,6 +48,7 @@
     margin: 5px 0 24px 0;
     padding: 0 0 10px 0;
     outline: 0;
+    background-color: transparent;
 }
 
 .form__input:last-of-type {
@@ -62,7 +66,7 @@
 }
 
 .error-span {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     bottom: -20px;
     font-weight: 400;
@@ -89,7 +93,17 @@
     line-height: 17px;
     text-align: center;
     color: #FFFFFF;
-    margin-bottom: 16px;
+    margin: 221px 0 16px 0;
+    transition: 0.3s;
+}
+
+.form__button:hover {
+    opacity: 0.4;
+}
+
+.form__button:disabled {
+    background-color: grey;
+    opacity: 0.4;
 }
 
 .is-registered {

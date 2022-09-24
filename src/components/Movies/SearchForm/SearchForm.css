@@ -3,6 +3,7 @@
     margin: 70px 0;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .search-form__wrapper {
@@ -34,6 +35,10 @@
     box-sizing: border-box;
 }
 
+.search-form__form_invalid-input {
+    border: 1px solid red;
+}
+
 .search-form__film-container {
     width: 100%;
     display: flex;
@@ -49,6 +54,8 @@
     border: none;
     background-color: #F9F9F9;
     outline: none;
+    width: 100%;
+    padding-right: 70px;
 }
 
 .search-form__film-icon {
@@ -113,6 +120,18 @@
     line-height: 18px;
 }
 
+.search-error {
+    color: red;
+    position: absolute;
+    left: 30px;
+    bottom: -25px;
+    visibility: hidden;
+}
+
+.search-error_visible {
+    visibility: visible;
+}
+
 @media screen and (max-width: 768px) {
     .search-form {
         margin: 80px 0 64px;
@@ -124,7 +143,6 @@
     }
 
     .form-filter {
-        background-color: #fff;
         margin-left: 0;
     }
 }
@@ -160,10 +178,12 @@
         margin-top: 45px;
         padding-left: 0;
         margin-left: 0;
+        background-color: #fff;
     }
 
     .search-form__film-input {
         width: 100%;
+        padding-right: 10px;
     }
 
 
@@ -175,5 +195,4 @@
         box-sizing: border-box;
         padding-right: 60px;
     }
-
 }

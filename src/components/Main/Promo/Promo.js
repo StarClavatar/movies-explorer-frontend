@@ -2,6 +2,7 @@ import './Promo.css';
 
 // нет css preview section
 function Promo(props) {
+
     return (
         <section className="preview section">
             <div className="banner">

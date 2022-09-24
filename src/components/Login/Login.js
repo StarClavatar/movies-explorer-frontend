@@ -1,21 +1,67 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Login.css';
-import logo from '../../images/logo.svg'
+import logo from '../../images/logo.svg';
+import { useFormWithValidation } from '../../utils/FormHooks';
 
 function Login(props) {
+    const { values, handleChange, errors, isValid } = useFormWithValidation();
+
+    // const [email, setEmail] = React.useState ('');
+    // const [password, setPassword] = React.useState ('');
+
+    // function handleEmailChange(e) {setEmail(e.target.value)};
+    // function handlePasswordChange(e) {setPassword(e.target.value)};
+
+    function handleAuthorize(e){
+        e.preventDefault();
+        props.onAuthorise(values.email, values.password);
+    }
+
     return (
-        <section class="login">
-            <div class="entrance-form">
-                <img class="entrance-form-logo" src={logo} alt="логотип"/>
-                <h1 class="entrance-form__header">Рады видеть!</h1>
-                <form class="form">
-                    <span class="form__input-title">E-mail</span>
-                    <input type="text" class="form__input"/>  
-                    <span class="form__input-title">Пароль</span>
-                    <input type="password" class="form__input"/>
-                    <span class="error-span">Что-то пошло не так§..</span>  
+        <section className="login">
+            <div className="entrance-form">
+                <Link to="/">
+                    <img className="entrance-form-logo" src={logo} alt="логотип"/>
+                </Link>
+                <h1 className="entrance-form__header">Рады видеть!</h1>
+                <form className="form" onSubmit={handleAuthorize}>
+                    <span className="form__input-title">E-mail</span>
+                    <input className="form__input" 
+                        name='email' 
+                        placeholder="E-mail" 
+                        autoFocus
+                        type="email" 
+                        autoComplete="off"
+                        required 
+                        onChange={handleChange}
+                        value={values.email ? values.email : ''}
+                    />
+                    <span className={`error-span${errors.email ? ' error-span_active' : ''}`} >
+                        {errors.email ? errors.email : ''}
+                    </span> 
+                    <span className="form__input-title">Пароль</span>
+                    <input className="form__input" 
+                        name='password' 
+                        placeholder="Пароль" 
+                        type="password" 
+                        autoComplete="off"
+                        required 
+                        onChange={handleChange}
+                        value={values.password ? values.password : ''}
+                    />
+                    <span className={`error-span${errors.email ? ' error-span_active' : ''}`} >
+                        {errors.password ? errors.password : ''}
+                    </span>
+                    <button className="form__button" type="submit" {...!isValid ? {disabled: 'disabled'} : {}} >
+                        Войти
+                    </button>
                 </form>
-                <button class="form__button">Войти</button>
-                <span class="is-registered">Ещё не зарегистрированы? <a class="is-registered__registration" href="#">Регистрация</a></span>
+                <span className="is-registered">
+                    Ещё не зарегистрированы?
+                    <Link to="/signup" className="is-registered__registration">Регистрация</Link>
+                </span>
+                    
             </div>
         </section>  
     );    

@@ -1,0 +1,21 @@
+[
+    {
+        "_id": "62bd88658a5e97458e8048ee",
+        "country": "Россия",
+        "director": "Михалков",
+        "duration": 20,
+        "year": "2022",
+        "description": "фильм о современной истории России",
+        "image": "https://besogontv.ru/upload/iblock/dfb/besogon_glavnaya_top2.jpg",
+        "trailerLink": "https://youtu.be/4X0qlPdtixU",
+        "thumbnail": "https://besogontv.ru/bitrix/templates/maxyc/assets/img/besogon.png",
+        "owner": {
+            "_id": "62bd88268a5e97458e8048ea",
+            "email": "yandexart@yandex.ru",
+            "name": "artem"
+        },
+        "movieId": 123123,
+        "nameRU": "Бессогон",
+        "nameEN": "Bessogon"
+    }
+]

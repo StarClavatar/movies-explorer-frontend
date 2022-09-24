@@ -1,24 +1,78 @@
+import React from 'react';
 import './SearchForm.css';
 import searchIcon from '../../../images/search-icon.svg'
-import find from '../../../images/find.svg'
+import findIcon from '../../../images/find.svg'
 
 
 function SearchForm(props) {
+    const [searchText, setSearchText] = React.useState('');
+    const [shorts, setShorts] = React.useState(false);
+    const {onSearch, savedMoviesMode}=props;
+
+    React.useEffect(
+        ()=>{
+            const searchParams = JSON.parse(localStorage.getItem('searchParams'));
+            if (!savedMoviesMode) {
+                if (searchParams && searchParams.searchText) {
+                    setSearchText(searchParams.searchText);
+                    setShorts (searchParams.shorts);
+                }
+            }
+            onSearch (
+                searchParams ? searchParams.searchText : searchText, 
+                searchParams ? searchParams.shorts : shorts
+            );
+        },
+        []
+    );
+
+    function searchTextChangeHandler(e) {setSearchText(e.target.value); /* if (savedMoviesMode) */ search(e.target.value, shorts)}
+    function shortsChangeHandler(e) {setShorts(e.target.checked); search(searchText, e.target.checked)}
+
+    function onSubmit(e) {
+        e.preventDefault();
+        search(searchText, shorts);
+    }
+
+    function search (searchText, shorts) {
+        onSearch (searchText, shorts);
+        if (!savedMoviesMode) localStorage.setItem('searchParams', JSON.stringify({searchText, shorts}))
+    }
+    
+    const req = savedMoviesMode ? {} : {required: 'required'};
     return (
-            <section className="search-form">
-                <div className='search-form__wrapper'>
-                    <form className="search-form__form">
-                        <div className="search-form__film-container">
-                            <img src={searchIcon} alt="Значок поиска лупа" className="search-form__film-icon" />
-                            <input className="search-form__film-input" type="text" placeholder="Фильм" required />
-                            <button className="button search-form__find-button" style={{backgroundImage: `url(${find})`}} type="submit"></button>
-                        </div>
-                        <div className="form-filter">
-                            <input className="form-filter__checkbox" type="checkbox" />
-                            <p className="form-filter__subsription">Короткометражки</p>
-                        </div>
-                    </form>
-                </div>
+        <section className="search-form">
+            <div className='search-form__wrapper'>
+                <form className="search-form__form" onSubmit={onSubmit}>
+                    <div className="search-form__film-container">
+                        <img src={searchIcon} alt="Значок поиска лупа" className="search-form__film-icon" />
+                        <input 
+                            className="search-form__film-input" 
+                            placeholder="Фильм" 
+                            autoFocus
+                            type="text" 
+                            value={searchText}
+                            onChange={searchTextChangeHandler}
+                            onInvalid={e => e.target.setCustomValidity("Введите название фильма")}
+                            onInput={e => e.target.setCustomValidity("")}                                
+                            {...req}
+                        />
+                        <button className="button search-form__find-button" 
+                            type="submit"
+                            style={{backgroundImage: `url(${findIcon})`}} 
+                        />
+                    </div>
+                    <div className="form-filter">
+                        <input className="form-filter__checkbox" 
+                            type="checkbox" 
+                            checked={shorts}
+                            onChange={shortsChangeHandler}
+                        />
+                        <p className="form-filter__subsription">Короткометражки</p>
+                    </div>
+                    <span className='search-error'>чёто не так! Не годится!</span>
+                </form>
+            </div>
         </section>
     );    
 }
