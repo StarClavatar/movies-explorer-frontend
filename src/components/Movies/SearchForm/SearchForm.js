@@ -11,14 +11,17 @@ function SearchForm(props) {
 
     React.useEffect(
         ()=>{
+            const searchParams = JSON.parse(localStorage.getItem('searchParams'));
             if (!savedMoviesMode) {
-                const searchParams = JSON.parse(localStorage.getItem('searchParams'));
                 if (searchParams && searchParams.searchText) {
                     setSearchText(searchParams.searchText);
                     setShorts (searchParams.shorts);
-                    onSearch (searchParams.searchText, searchParams.shorts);
                 }
             }
+            onSearch (
+                searchParams ? searchParams.searchText : searchText, 
+                searchParams ? searchParams.shorts : shorts
+            );
         },
         []
     );

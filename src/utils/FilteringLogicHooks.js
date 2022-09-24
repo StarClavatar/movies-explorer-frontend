@@ -17,20 +17,22 @@ export function useMoviesLogic(Api) {
         if (!moviesListSrc) dataToLoad[0]=MoviesApi.getMovies();
         if (!savedMoviesList) dataToLoad[1]=Api.getSavedMovies();
         // запрашиваем все фильмы и все сохраненные одними промисом
-        // Promise.all([MoviesApi.getMovies(), Api.getSavedMovies()])
         Promise.all(dataToLoad)
         .then(([movies, savedMovies])=>{
             // сохраняем данные в стейте
-            if (movies) setMoviesListSrc(movies);
-            if (!movies) movies=moviesListSrc;
-            if (savedMovies) setSavedMoviesList(savedMovies);
-            if (!savedMovies) savedMovies=savedMoviesList;
+            movies ? setMoviesListSrc(movies) : movies=moviesListSrc;
+            if (savedMovies) {
+                setSavedMoviesList(normalizeSavedMovies(savedMovies)); 
+                setSavedMoviesFiltered(savedMovies)
+            } else { 
+                savedMovies=savedMoviesList;
+            }    
 
             // фильтруем массив полученных фильмов
-            let filtered; 
-            if (searchText) {
+            // let filtered; 
+            // if (searchText) {
                 // фильтруем массив полученных фильмов
-                filtered = filterMovies(movies, searchText, shorts);
+                const filtered = filterMovies(movies, searchText, shorts);
                 // добавляем свойства наличия в сохраненных и исправляем ссылки
                 filtered.forEach(item => {
                     // ищем в сохраненных и добавляем свойство savedMovieId если фильм найден  
@@ -40,9 +42,9 @@ export function useMoviesLogic(Api) {
                     item.imageLink=MoviesApi.baseUrl() + '/' + item.image.url
                     item.thumbnailLink=MoviesApi.baseUrl() + '/' + item.image.formats.thumbnail.url;
                 });
-            } else {
-                filtered=undefined;
-            }
+            // } else {
+            //     filtered=undefined;
+            // }
             setLoading(false);
             setMoviesList(filtered);
         })
@@ -61,13 +63,7 @@ export function useMoviesLogic(Api) {
         Api.getSavedMovies()
         .then((res)=>{
             // добавляем свойства для унификации с карточками фильмов
-            res.forEach(item=>{
-                // приводим элемент массива к единому виду
-                item.id=item._id
-                item.savedMovieId=item._id;
-                item.imageLink=item.image;
-                item.thumbnailLink=item.thumbnail;
-            })
+            normalizeSavedMovies (res);
             // снимаем признак загрузки данных
             setLoading(false);
             setSavedMoviesFiltered(res);
@@ -80,7 +76,19 @@ export function useMoviesLogic(Api) {
         });
     }    
 
+
+    function normalizeSavedMovies(data) {
+        data.forEach(item=>{
+                    item.id=item._id
+                    item.savedMovieId=item._id;
+                    item.imageLink=item.image;
+                    item.thumbnailLink=item.thumbnail;
+        })
+    }
+
+
     function savedMoviesFilterHandler(searchText, shorts) {
+        if (!savedMoviesList) return undefined;
         setSavedMoviesFiltered(filterMovies(savedMoviesList, searchText, shorts));
     }
 
